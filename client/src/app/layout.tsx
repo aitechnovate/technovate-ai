@@ -20,6 +20,7 @@ const inter = Inter({
   preload: true,
 });
 
+
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
