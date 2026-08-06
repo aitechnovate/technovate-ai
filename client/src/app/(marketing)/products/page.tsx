@@ -32,7 +32,7 @@ export default function ProductsPage() {
           </Badge>
           <h1 className="font-display text-display-72 text-balance leading-[1.05]">
             Platforms we&apos;ve built —{" "}
-            <span className="text-gradient-blue-cyan">battle-tested by our work.</span>
+            <span className="text-gradient-brand">battle-tested by our work.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-body-16 text-dark-600 text-pretty">
             Every product in this section started as an internal tool to make

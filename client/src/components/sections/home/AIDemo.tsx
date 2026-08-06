@@ -293,7 +293,7 @@ export function AIDemo({ className }: DemoProps) {
         </Badge>
         <h2 className="font-display text-h1-48 text-balance">
           AI you can{" "}
-          <span className="text-gradient-blue-purple">try, not just read about.</span>
+          <span className="text-gradient-brand">try, not just read about.</span>
         </h2>
         <p className="mt-3 text-body-16 text-dark-600">
           A scripted chatbot, a typical agent workflow, and a real chart from

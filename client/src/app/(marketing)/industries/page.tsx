@@ -32,7 +32,7 @@ export default function IndustriesPage() {
           </Badge>
           <h1 className="font-display text-display-72 text-balance leading-[1.05]">
             Domain-tuned AI for{" "}
-            <span className="text-gradient-blue-cyan">the sectors we know best.</span>
+            <span className="text-gradient-brand">the sectors we know best.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-body-16 text-dark-600 text-pretty">
             We&apos;ve shipped production AI in regulated, high-stakes

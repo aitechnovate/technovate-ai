@@ -1,9 +1,7 @@
-"use client";
-
 import * as React from "react";
-import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
+import { Reveal } from "@/components/ui/Reveal";
 import {
   Icon,
   type IconName,
@@ -69,7 +67,7 @@ export function WhyUs({ className }: WhyUsProps) {
         </Badge>
         <h2 className="font-display text-h1-48 text-balance">
           Built for teams who measure AI by{" "}
-          <span className="text-gradient-blue-purple">shipped outcomes.</span>
+          <span className="text-gradient-brand">shipped outcomes.</span>
         </h2>
         <p className="mt-3 text-body-16 text-dark-600">
           We&apos;re the partner ambitious teams call when AI has to actually
@@ -79,16 +77,10 @@ export function WhyUs({ className }: WhyUsProps) {
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {pillars.map((pillar, index) => (
-          <motion.article
+          <Reveal
             key={pillar.title}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-            transition={{
-              duration: 0.4,
-              delay: index * 0.06,
-              ease: [0.16, 1, 0.3, 1],
-            }}
+            as="article"
+            delay={index * 50}
             className="group relative overflow-hidden rounded-xl border border-dark/10 bg-white p-6 shadow-elevation-xs transition-all duration-350 hover:-translate-y-1 hover:shadow-elevation-md sm:p-8"
           >
             <span
@@ -108,7 +100,7 @@ export function WhyUs({ className }: WhyUsProps) {
                 {pillar.highlight}
               </span>
             )}
-          </motion.article>
+          </Reveal>
         ))}
       </div>
     </Section>

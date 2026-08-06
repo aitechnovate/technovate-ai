@@ -16,6 +16,7 @@ export * from "./Icon";
 export * from "./Input";
 export * from "./KpiCard";
 export * from "./Label";
+export * from "./Logo";
 export * from "./Modal";
 export * from "./PortfolioCard";
 export * from "./PricingCard";

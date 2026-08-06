@@ -45,7 +45,7 @@ export function ResourceHeader({
         </Badge>
         <h1 className="font-display text-display-72 text-balance leading-[1.05]">
           {title}{" "}
-          <span className="text-gradient-blue-cyan">{highlight}</span>
+          <span className="text-gradient-brand">{highlight}</span>
         </h1>
         <p className="mt-6 max-w-2xl text-body-16 text-dark-600 text-pretty">
           {description}

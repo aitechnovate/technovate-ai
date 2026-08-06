@@ -145,7 +145,7 @@ export default function CaseStudyDetailPage({ params }: PageProps) {
               <div key={m.label}>
                 <dt className="sr-only">{m.label}</dt>
                 <dd>
-                  <span className="block font-display text-h1-48 text-gradient-blue-cyan">
+                  <span className="block font-display text-h1-48 text-gradient-brand">
                     {m.value}
                   </span>
                   <span className="mt-1 block text-small-14 text-dark-500">

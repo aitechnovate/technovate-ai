@@ -67,7 +67,7 @@ export function DetailHero({
           {highlight && (
             <>
               {" "}
-              <span className="text-gradient-blue-cyan">{highlight}</span>
+              <span className="text-gradient-brand">{highlight}</span>
             </>
           )}
         </h1>
@@ -116,7 +116,7 @@ export function DetailHero({
             <div key={k.label}>
               <dt className="sr-only">{k.label}</dt>
               <dd>
-                <span className="block font-display text-h1-48 text-gradient-blue-cyan">
+                <span className="block font-display text-h1-48 text-gradient-brand">
                   {k.value}
                 </span>
                 <span className="mt-1 block text-small-14 text-dark-500">

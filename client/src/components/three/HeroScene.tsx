@@ -33,10 +33,10 @@ function SpinningIcosahedron({ reduced }: GroupProps) {
       <mesh ref={meshRef} scale={1.4}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
-          color="#0066FF"
+          color="#1B62F0"
           roughness={0.25}
           metalness={0.6}
-          emissive="#003D99"
+          emissive="#123FA8"
           emissiveIntensity={0.35}
         />
       </mesh>
@@ -54,12 +54,12 @@ function DistortedSphere({ reduced }: GroupProps) {
       <mesh position={[2.2, -0.8, -1.5]} scale={0.9}>
         <sphereGeometry args={[1, 64, 64]} />
         <MeshDistortMaterial
-          color="#00F5FF"
+          color="#6D28D9"
           roughness={0.4}
           metalness={0.2}
           distort={reduced ? 0 : 0.45}
           speed={reduced ? 0 : 1.8}
-          emissive="#00C4CC"
+          emissive="#4A1D96"
           emissiveIntensity={0.25}
         />
       </mesh>
@@ -77,8 +77,8 @@ function OrbitalRing() {
     <mesh ref={ref} rotation={[Math.PI / 2.5, 0, 0]}>
       <torusGeometry args={[2.5, 0.015, 16, 200]} />
       <meshStandardMaterial
-        color="#6A0DAD"
-        emissive="#6A0DAD"
+        color="#7C3AED"
+        emissive="#7C3AED"
         emissiveIntensity={0.6}
         roughness={0.2}
         metalness={0.4}
@@ -123,7 +123,7 @@ function ParticleField({ count = 250 }: { count?: number }) {
       </bufferGeometry>
       <pointsMaterial
         size={0.04}
-        color="#00F5FF"
+        color="#6D28D9"
         sizeAttenuation
         transparent
         opacity={0.7}
@@ -154,8 +154,8 @@ export function HeroScene({ reducedMotion = false }: { reducedMotion?: boolean }
       style={{ width: "100%", height: "100%" }}
     >
       <ambientLight intensity={0.45} />
-      <pointLight position={[5, 5, 5]} intensity={1.1} color="#00F5FF" />
-      <pointLight position={[-5, -3, 2]} intensity={0.8} color="#6A0DAD" />
+      <pointLight position={[5, 5, 5]} intensity={1.1} color="#1B62F0" />
+      <pointLight position={[-5, -3, 2]} intensity={0.8} color="#7C3AED" />
       <SpinningIcosahedron reduced={reducedMotion} />
       <DistortedSphere reduced={reducedMotion} />
       <OrbitalRing />

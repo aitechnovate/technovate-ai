@@ -1,12 +1,10 @@
-"use client";
-
 import * as React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { Icon, type IconName } from "@/components/ui/Icon";
+import { Reveal } from "@/components/ui/Reveal";
 
 type Industry = {
   slug: string;
@@ -113,16 +111,9 @@ export function Industries({ className }: IndustriesProps) {
       <div className="-mx-4 sm:-mx-6 lg:-mx-8">
         <div className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:px-6 lg:px-8">
           {industries.map((ind, index) => (
-            <motion.div
+            <Reveal
               key={ind.slug}
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.05,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+              delay={index * 50}
               className="w-[280px] shrink-0 snap-start sm:w-[320px]"
             >
               <Link
@@ -153,7 +144,7 @@ export function Industries({ className }: IndustriesProps) {
                   </p>
                 </div>
               </Link>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>

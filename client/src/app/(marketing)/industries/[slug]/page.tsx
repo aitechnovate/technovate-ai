@@ -93,7 +93,7 @@ export default function IndustryDetailPage({ params }: PageProps) {
               <dt className="text-[11px] font-semibold uppercase tracking-wider text-dark-500">
                 {industry.metric.label}
               </dt>
-              <dd className="mt-1 font-display text-h2-36 text-gradient-blue-cyan">
+              <dd className="mt-1 font-display text-h2-36 text-gradient-brand">
                 {industry.metric.value}
               </dd>
             </div>
@@ -189,7 +189,7 @@ export default function IndustryDetailPage({ params }: PageProps) {
                   <div key={m.label}>
                     <dt className="sr-only">{m.label}</dt>
                     <dd>
-                      <span className="block font-display text-h2-36 text-gradient-blue-cyan">
+                      <span className="block font-display text-h2-36 text-gradient-brand">
                         {m.value}
                       </span>
                       <span className="mt-1 block text-small-14 text-dark-500">

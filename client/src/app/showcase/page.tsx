@@ -1,4 +1,5 @@
 import * as React from "react";
+import Link from "next/link";
 import {
   Accordion,
   AccordionContent,
@@ -216,7 +217,7 @@ export default function ShowcasePage() {
               <a href="#buttons">Browse components</a>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-              <a href="/">Back to home</a>
+              <Link href="/">Back to home</Link>
             </Button>
           </div>
         </div>
@@ -751,7 +752,7 @@ export default function ShowcasePage() {
         <Container>
           <div className="flex flex-wrap items-center justify-between gap-3 border-t border-dark/10 pt-8 text-small-14 text-dark-500">
             <span>Phase 2 — UI Primitives showcase.</span>
-            <a href="/" className="text-primary hover:underline">Back to home</a>
+            <Link href="/" className="text-primary hover:underline">Back to home</Link>
           </div>
         </Container>
       </Section>

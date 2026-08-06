@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
+import { LogoLockup } from "@/components/ui/Logo";
 import type { NavGroup } from "@/data/nav";
 import { siteInfo } from "@/data/site";
 
@@ -74,9 +75,10 @@ export function MobileNav({ open, onClose, navGroups }: MobileNavProps) {
               <Link
                 href="/"
                 onClick={onClose}
-                className="font-display text-h4-24 text-dark"
+                className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                aria-label={`${siteInfo.name} home`}
               >
-                {siteInfo.name}
+                <LogoLockup markClassName="h-8" />
               </Link>
               <Button
                 variant="ghost"
@@ -178,9 +180,9 @@ export function MobileNav({ open, onClose, navGroups }: MobileNavProps) {
                 size="md"
                 fullWidth
               >
-                <a href="/contact" onClick={onClose}>
+                <Link href="/contact" onClick={onClose}>
                   Sign in
-                </a>
+                </Link>
               </Button>
               <Button
                 asChild
@@ -188,9 +190,9 @@ export function MobileNav({ open, onClose, navGroups }: MobileNavProps) {
                 size="md"
                 fullWidth
               >
-                <a href="/contact" onClick={onClose}>
+                <Link href="/contact" onClick={onClose}>
                   Book consultation
-                </a>
+                </Link>
               </Button>
             </div>
           </motion.div>

@@ -135,7 +135,7 @@ export function ApproachSection({
             <Card variant="flat" className="h-full bg-white">
               <span
                 aria-hidden="true"
-                className="font-display text-h2-36 text-gradient-blue-cyan"
+                className="font-display text-h2-36 text-gradient-brand"
               >
                 {s.step}
               </span>

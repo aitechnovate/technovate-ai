@@ -39,7 +39,7 @@ export default function NotFound() {
             </Badge>
             <h1 className="font-display text-display-72 text-balance leading-[1.05]">
               That page is{" "}
-              <span className="text-gradient-blue-cyan">somewhere else.</span>
+              <span className="text-gradient-brand">somewhere else.</span>
             </h1>
             <p className="mt-6 max-w-xl text-body-16 text-dark-600 text-pretty">
               The link you followed may be broken, or the page may have moved

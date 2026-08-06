@@ -23,12 +23,16 @@ const spacingClass = {
   xl: "py-24 sm:py-32 lg:py-40",
 } as const;
 
+/**
+ * Dark tones carry `on-dark`, which re-points the base-layer heading and
+ * paragraph colors to their inverted values. Without it, any <p> rendered
+ * inside a dark band inherits ink-on-light and disappears.
+ */
 const toneClass = {
-  default: "bg-light text-dark",
+  default: "bg-white text-dark",
   muted: "bg-light-200 text-dark",
-  dark: "bg-dark text-light",
-  gradient:
-    "bg-gradient-to-br from-dark via-dark to-[#001a4d] text-light",
+  dark: "on-dark bg-dark text-white",
+  gradient: "on-dark bg-gradient-ink text-white",
 } as const;
 
 /**

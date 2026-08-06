@@ -1,11 +1,9 @@
-"use client";
-
 import * as React from "react";
-import { motion } from "framer-motion";
 import { Shield } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { trustLogos, partnerLogos, certifications } from "@/data/trust";
+import { Reveal } from "@/components/ui/Reveal";
 
 type TrustBarProps = {
   className?: string;
@@ -26,11 +24,7 @@ export function TrustBar({ className }: TrustBarProps) {
       )}
     >
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-          transition={{ duration: 0.4 }}
+        <Reveal
           className="space-y-10"
         >
           <p
@@ -86,7 +80,7 @@ export function TrustBar({ className }: TrustBarProps) {
               ))}
             </ul>
           </div>
-        </motion.div>
+        </Reveal>
       </Container>
     </section>
   );

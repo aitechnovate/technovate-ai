@@ -1,11 +1,9 @@
-"use client";
-
 import * as React from "react";
-import { motion } from "framer-motion";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { TestimonialCard } from "@/components/ui/TestimonialCard";
 import { testimonials } from "@/data/social";
+import { Reveal } from "@/components/ui/Reveal";
 
 type TestimonialsProps = {
   className?: string;
@@ -36,40 +34,23 @@ export function Testimonials({ className }: TestimonialsProps) {
       </div>
 
       {featured ? (
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        <Reveal
           className="mb-6"
         >
           <TestimonialCard item={featured} />
-        </motion.div>
+        </Reveal>
       ) : null}
 
       {rest.length > 0 ? (
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-          variants={{
-            hidden: { opacity: 0 },
-            show: { opacity: 1, transition: { staggerChildren: 0.08 } },
-          }}
+        <div
           className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
           {rest.map((t, idx) => (
-            <motion.div
-              key={`${t.name}-${idx}`}
-              variants={{
-                hidden: { opacity: 0, y: 12 },
-                show: { opacity: 1, y: 0 },
-              }}
-            >
+            <Reveal key={`${t.name}-${idx}`} delay={idx * 60}>
               <TestimonialCard item={t} />
-            </motion.div>
+            </Reveal>
           ))}
-        </motion.div>
+        </div>
       ) : null}
     </Section>
   );

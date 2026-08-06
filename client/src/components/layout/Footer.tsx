@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import Link from "next/link";
 import {
@@ -8,16 +6,14 @@ import {
   FaGithub as GithubIcon,
   FaYoutube as YoutubeIcon,
 } from "react-icons/fa6";
-import { Mail, MapPin, Phone, ArrowRight, Sparkles } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Label } from "@/components/ui/Label";
+import { LogoLockup } from "@/components/ui/Logo";
+import { NewsletterForm } from "@/components/ui/NewsletterForm";
 import { Separator } from "@/components/ui/Separator";
 import { footerNav } from "@/data/nav";
 import { siteInfo } from "@/data/site";
-import { toast } from "@/components/ui/Toaster";
 
 type FooterProps = {
   className?: string;
@@ -25,27 +21,16 @@ type FooterProps = {
 
 /**
  * Site-wide footer with 6 link columns + newsletter + social + bottom bar.
+ *
+ * A server component: the only stateful part (newsletter capture) is isolated
+ * in <NewsletterForm>, so the footer's markup and link data no longer ship to
+ * the browser on every route.
  */
 export function Footer({ className }: FooterProps) {
-  const [email, setEmail] = React.useState("");
-  const [submitting, setSubmitting] = React.useState(false);
-
-  const onSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!email) return;
-    setSubmitting(true);
-    // UI-only — mock submission.
-    window.setTimeout(() => {
-      setSubmitting(false);
-      setEmail("");
-      toast.success("Subscribed — welcome aboard.");
-    }, 600);
-  };
-
   return (
     <footer
       className={cn(
-        "border-t border-dark/10 bg-dark text-light",
+        "on-dark border-t border-white/10 bg-dark text-white",
         className,
       )}
     >
@@ -55,49 +40,23 @@ export function Footer({ className }: FooterProps) {
           <div className="space-y-6">
             <Link
               href="/"
-              className="inline-flex items-center gap-2"
+              className="inline-block rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-dark"
               aria-label={`${siteInfo.name} home`}
             >
-              <span
-                aria-hidden="true"
-                className="inline-flex size-9 items-center justify-center rounded-md bg-gradient-blue-purple text-white"
-              >
-                <Sparkles className="size-4" />
-              </span>
-              <span className="font-display text-h3-30">{siteInfo.name}</span>
+              <LogoLockup tone="onDark" markClassName="h-9" />
             </Link>
             <p className="max-w-md text-small-14 text-white/70 text-pretty">
               {siteInfo.description}
             </p>
 
-            <form onSubmit={onSubscribe} className="space-y-3" aria-label="Newsletter signup">
-              <Label htmlFor="footer-newsletter" className="text-white">
-                Newsletter
-              </Label>
-              <div className="flex flex-col gap-2 sm:flex-row">
-                <Input
-                  id="footer-newsletter"
-                  type="email"
-                  required
-                  placeholder="you@company.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  variant="ghost"
-                  className="bg-white/10 text-white placeholder:text-white/40 border-white/10 focus-visible:border-white/30"
-                />
-                <Button
-                  type="submit"
-                  variant="secondary"
-                  loading={submitting}
-                  rightIcon={<ArrowRight className="size-4" />}
-                >
-                  Subscribe
-                </Button>
-              </div>
-              <p className="text-[12px] text-white/50">
+            <div className="space-y-3">
+              <p className="text-small-14 font-semibold text-white">Newsletter</p>
+              <NewsletterForm tone="onDark" id="footer-newsletter" />
+              {/* 4.3:1 at white/50 — lifted to white/70 (6.0:1 on the ink base). */}
+              <p className="text-[12px] text-white/70">
                 One email a month with our best engineering notes. No spam.
               </p>
-            </form>
+            </div>
 
             <ul className="flex items-center gap-2 pt-2" aria-label="Social links">
               {[
@@ -144,7 +103,7 @@ export function Footer({ className }: FooterProps) {
           >
             {footerNav.map((column) => (
               <div key={column.title}>
-                <h3 className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-white/50">
+                <h3 className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-white/70">
                   {column.title}
                 </h3>
                 <ul className="space-y-2">
@@ -188,14 +147,14 @@ export function Footer({ className }: FooterProps) {
               </span>
             </li>
           </ul>
-          <p className="text-white/50 lg:text-right">
+          <p className="text-white/70 lg:text-right">
             Founded {siteInfo.founded} · {siteInfo.legalName}
           </p>
         </div>
 
         <Separator className="bg-white/10" />
 
-        <div className="flex flex-col items-start gap-4 py-6 text-[12px] text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col items-start gap-4 py-6 text-[12px] text-white/70 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {siteInfo.legalName}. All rights
             reserved.

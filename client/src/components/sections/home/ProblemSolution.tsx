@@ -1,11 +1,9 @@
-"use client";
-
 import * as React from "react";
-import { motion } from "framer-motion";
 import { AlertCircle, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
+import { Reveal } from "@/components/ui/Reveal";
 
 type ProblemSolutionProps = {
   className?: string;
@@ -45,7 +43,7 @@ export function ProblemSolution({ className }: ProblemSolutionProps) {
         </Badge>
         <h2 className="font-display text-h1-48 text-balance">
           The friction is real.{" "}
-          <span className="text-gradient-blue-cyan">So is the fix.</span>
+          <span className="text-gradient-brand">So is the fix.</span>
         </h2>
         <p className="mt-3 text-body-16 text-dark-600">
           Most teams we meet have tried AI before — and hit the same walls.
@@ -55,11 +53,7 @@ export function ProblemSolution({ className }: ProblemSolutionProps) {
 
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-10">
         {/* Problem column */}
-        <motion.div
-          initial={{ opacity: 0, x: -12 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        <Reveal
           className={cn(
             "relative overflow-hidden rounded-xl border border-error/20 bg-error/[0.04] p-6 sm:p-8",
           )}
@@ -92,14 +86,11 @@ export function ProblemSolution({ className }: ProblemSolutionProps) {
               ))}
             </ul>
           </div>
-        </motion.div>
+        </Reveal>
 
         {/* Outcome column */}
-        <motion.div
-          initial={{ opacity: 0, x: 12 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+        <Reveal
+          delay={80}
           className={cn(
             "relative overflow-hidden rounded-xl border border-success/20 bg-success/[0.04] p-6 sm:p-8",
           )}
@@ -132,7 +123,7 @@ export function ProblemSolution({ className }: ProblemSolutionProps) {
               ))}
             </ul>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </Section>
   );

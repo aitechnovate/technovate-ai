@@ -32,7 +32,7 @@ export default function SolutionsPage() {
           </Badge>
           <h1 className="font-display text-display-72 text-balance leading-[1.05]">
             Nine capabilities.{" "}
-            <span className="text-gradient-blue-cyan">One accountable team.</span>
+            <span className="text-gradient-brand">One accountable team.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-body-16 text-dark-600 text-pretty">
             Strategy, build, deploy, and optimize — under one roof. Pick a

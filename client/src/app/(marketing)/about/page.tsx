@@ -170,7 +170,7 @@ export default function AboutPage() {
           </Badge>
           <h1 className="font-display text-display-72 text-balance leading-[1.05]">
             We&apos;re building the AI partner{" "}
-            <span className="text-gradient-blue-cyan">we wished existed.</span>
+            <span className="text-gradient-brand">we wished existed.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-body-16 text-dark-600 text-pretty">
             Technovate AI was founded in 2022 by a senior team of AI engineers

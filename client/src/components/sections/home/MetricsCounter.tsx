@@ -1,7 +1,4 @@
-"use client";
-
 import * as React from "react";
-import { motion } from "framer-motion";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { KpiCard } from "@/components/ui/KpiCard";
@@ -9,6 +6,7 @@ import {
   Icon,
   type IconName,
 } from "@/components/ui/Icon";
+import { Reveal } from "@/components/ui/Reveal";
 import { metrics } from "@/data/trust";
 
 type MetricDisplay = {
@@ -92,24 +90,9 @@ export function MetricsCounter({ className }: MetricsCounterProps) {
         </p>
       </div>
 
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-        variants={{
-          hidden: { opacity: 0 },
-          show: { opacity: 1, transition: { staggerChildren: 0.08 } },
-        }}
-        className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5"
-      >
-        {combined.map((m) => (
-          <motion.div
-            key={m.label}
-            variants={{
-              hidden: { opacity: 0, y: 12 },
-              show: { opacity: 1, y: 0 },
-            }}
-          >
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        {combined.map((m, index) => (
+          <Reveal key={m.label} delay={index * 60}>
             <KpiCard
               label={m.label}
               value={m.value}
@@ -118,9 +101,9 @@ export function MetricsCounter({ className }: MetricsCounterProps) {
               animated
               numericValue={m.numericValue}
             />
-          </motion.div>
+          </Reveal>
         ))}
-      </motion.div>
+      </div>
     </Section>
   );
 }

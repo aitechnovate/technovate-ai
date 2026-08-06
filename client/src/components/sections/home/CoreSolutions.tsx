@@ -1,12 +1,10 @@
-"use client";
-
 import * as React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { Icon, type IconName } from "@/components/ui/Icon";
+import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/utils";
 
 type Solution = {
@@ -106,7 +104,7 @@ export function CoreSolutions({ className }: CoreSolutionsProps) {
           </Badge>
           <h2 className="font-display text-h1-48 text-balance">
             Nine capabilities.{" "}
-            <span className="text-gradient-blue-cyan">One accountable team.</span>
+            <span className="text-gradient-brand">One accountable team.</span>
           </h2>
           <p className="mt-3 text-body-16 text-dark-600">
             Pick a single service or compose them — strategy, build, deploy,
@@ -124,17 +122,7 @@ export function CoreSolutions({ className }: CoreSolutionsProps) {
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {solutions.map((sol, index) => (
-          <motion.div
-            key={sol.slug}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-            transition={{
-              duration: 0.4,
-              delay: index * 0.05,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-          >
+          <Reveal key={sol.slug} delay={index * 50}>
             <Link
               href={sol.href}
               className={cn(
@@ -168,7 +156,7 @@ export function CoreSolutions({ className }: CoreSolutionsProps) {
                 />
               </span>
             </Link>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
     </Section>

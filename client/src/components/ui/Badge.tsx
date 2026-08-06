@@ -6,19 +6,23 @@ const badgeVariants = cva(
   "inline-flex items-center gap-1.5 rounded-full font-medium transition-colors duration-150",
   {
     variants: {
+      /*
+       * Tinted variants use a 10% wash behind a 700-weight label so the text
+       * clears 4.5:1 against the tint, not just against white.
+       */
       variant: {
-        default: "bg-primary/10 text-primary border border-primary/20",
-        secondary: "bg-secondary/10 text-secondary-700 border border-secondary/20",
-        accent: "bg-accent/10 text-accent border border-accent/20",
-        success: "bg-success/10 text-success border border-success/20",
-        warning: "bg-warning/10 text-warning border border-warning/20",
-        error: "bg-error/10 text-error border border-error/20",
-        neutral: "bg-dark/5 text-dark-700 border border-dark/10",
-        outline: "bg-transparent text-dark border border-dark/20",
+        default: "border border-primary/20 bg-primary/10 text-primary-700",
+        secondary: "border border-secondary/20 bg-secondary/10 text-secondary-700",
+        accent: "border border-accent/20 bg-accent/10 text-accent-700",
+        success: "border border-success/20 bg-success/10 text-success",
+        warning: "border border-warning/20 bg-warning/10 text-warning",
+        error: "border border-error/20 bg-error/10 text-error",
+        neutral: "border border-dark/10 bg-dark/[0.04] text-dark-600",
+        outline: "border border-dark/20 bg-transparent text-dark-600",
         glass:
-          "bg-white/15 text-white border border-white/30 backdrop-blur-md",
-        gradient: "bg-gradient-blue-cyan text-white border border-transparent",
-        outlineGradient: "bg-transparent text-dark gradient-border",
+          "border border-white/30 bg-white/15 text-white backdrop-blur-md",
+        gradient: "border border-transparent bg-gradient-brand text-white",
+        outlineGradient: "gradient-border bg-transparent text-dark",
       },
       size: {
         sm: "text-[11px] px-2 py-0.5",

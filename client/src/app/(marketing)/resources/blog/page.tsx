@@ -45,7 +45,7 @@ export default function BlogIndexPage() {
           </Badge>
           <h1 className="font-display text-display-72 text-balance leading-[1.05]">
             Engineering notes from{" "}
-            <span className="text-gradient-blue-cyan">
+            <span className="text-gradient-brand">
               the work itself.
             </span>
           </h1>

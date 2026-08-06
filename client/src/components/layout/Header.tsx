@@ -2,10 +2,11 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { ChevronDown, Sparkles } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useScrolledPast } from "@/hooks/use-scroll";
 import { Button } from "@/components/ui/Button";
+import { LogoLockup } from "@/components/ui/Logo";
 import { MegaMenu } from "./MegaMenu";
 import { MobileNav } from "./MobileNav";
 import { primaryNav } from "@/data/nav";
@@ -68,18 +69,10 @@ export function Header({ navGroups = primaryNav, className }: HeaderProps) {
           {/* Logo */}
           <Link
             href="/"
-            className="group inline-flex shrink-0 items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+            className="group shrink-0 rounded-md transition-transform duration-250 ease-out-expo hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
             aria-label={`${siteInfo.name} home`}
           >
-            <span
-              aria-hidden="true"
-              className="inline-flex size-9 items-center justify-center rounded-md bg-gradient-blue-purple text-white shadow-elevation-sm transition-transform group-hover:scale-105"
-            >
-              <Sparkles className="size-4" />
-            </span>
-            <span className="font-display text-h4-24 text-dark">
-              {siteInfo.name}
-            </span>
+            <LogoLockup priority markClassName="h-8 lg:h-9" />
           </Link>
 
           {/* Desktop nav */}
@@ -142,7 +135,7 @@ export function Header({ navGroups = primaryNav, className }: HeaderProps) {
               size="sm"
               className="hidden lg:inline-flex"
             >
-              <a href="/contact">Sign in</a>
+              <Link href="/contact">Sign in</Link>
             </Button>
             <Button
               asChild
@@ -150,7 +143,7 @@ export function Header({ navGroups = primaryNav, className }: HeaderProps) {
               size="sm"
               className="hidden lg:inline-flex"
             >
-              <a href="/contact">Book consultation</a>
+              <Link href="/contact">Book consultation</Link>
             </Button>
 
             {/* Mobile hamburger */}

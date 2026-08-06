@@ -123,7 +123,7 @@ export function CareersPageContent() {
           </Badge>
           <h1 className="font-display text-display-72 text-balance leading-[1.05]">
             Build the firm{" "}
-            <span className="text-gradient-blue-cyan">you wished you worked at.</span>
+            <span className="text-gradient-brand">you wished you worked at.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-body-16 text-dark-600 text-pretty">
             Senior, accountable, and obsessed with outcomes. We hire engineers

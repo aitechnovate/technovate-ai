@@ -118,7 +118,7 @@ export default function PortfolioDetailPage({ params }: PageProps) {
                 <Card variant="flat" className="h-full bg-white">
                   <span
                     aria-hidden="true"
-                    className="font-display text-h2-36 text-gradient-blue-cyan"
+                    className="font-display text-h2-36 text-gradient-brand"
                   >
                     {String(idx + 1).padStart(2, "0")}
                   </span>

@@ -1,9 +1,9 @@
-"use client";
-
+import type { Metadata } from "next";
 import * as React from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/ui/Section";
+import { NewsletterForm } from "@/components/ui/NewsletterForm";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/Tabs";
@@ -12,6 +12,13 @@ import { Icon } from "@/components/ui/Icon";
 import { blogPosts } from "@/data/content";
 import { resourceFormats } from "@/data/resources";
 import { cn } from "@/lib/utils";
+
+export const metadata: Metadata = {
+  title: "Resources",
+  description:
+    "Field notes, tutorials, whitepapers, and webinars from the team — the playbook behind our work.",
+  alternates: { canonical: "/resources" },
+};
 
 type ResourceItem = {
   slug: string;
@@ -172,7 +179,7 @@ export default function ResourcesPage() {
           </Badge>
           <h1 className="font-display text-display-72 text-balance leading-[1.05]">
             Engineering notes, deep dives,{" "}
-            <span className="text-gradient-blue-cyan">and the playbook behind our work.</span>
+            <span className="text-gradient-brand">and the playbook behind our work.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-body-16 text-dark-600 text-pretty">
             We publish what we learn. Browse by format below — or grab the AI
@@ -334,25 +341,7 @@ export default function ResourcesPage() {
                 occasional deep dive, and a single CTA at the bottom.
               </p>
             </div>
-            <form
-              className="flex flex-col gap-2 sm:flex-row"
-              aria-label="Newsletter signup"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input
-                type="email"
-                placeholder="you@company.com"
-                aria-label="Email address"
-                className="h-12 flex-1 rounded-md border border-white/15 bg-white/10 px-4 text-body-16 text-white placeholder:text-white/50 focus-visible:border-white/40 focus-visible:outline-none"
-              />
-              <button
-                type="submit"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-secondary px-6 text-body-16 font-semibold text-dark transition-colors hover:bg-secondary-600"
-              >
-                Subscribe
-                <ArrowRight className="size-4" />
-              </button>
-            </form>
+            <NewsletterForm tone="onDark" id="resources-newsletter" />
           </div>
         </div>
       </Section>

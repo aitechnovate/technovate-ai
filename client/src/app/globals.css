@@ -4,26 +4,40 @@
 
 /* ---------------------------------------------------------------------- */
 /* Brand tokens — exposed as CSS variables so Tailwind classes and plain   */
-/* CSS can share a single source of truth.                                */
+/* CSS can share a single source of truth. Values mirror tailwind.config.ts */
+/* and are derived from the logo (azure → violet over navy ink).           */
 /* ---------------------------------------------------------------------- */
 :root {
-  /* Colors */
-  --color-primary: 0 102 255;     /* #0066FF */
-  --color-secondary: 0 245 255;   /* #00F5FF */
-  --color-accent: 106 13 173;     /* #6A0DAD */
-  --color-dark: 15 23 42;         /* #0F172A */
-  --color-light: 248 250 252;     /* #F8FAFC */
+  /* Brand */
+  --color-primary: 27 98 240; /* #1B62F0 — azure */
+  --color-secondary: 79 70 229; /* #4F46E5 — indigo */
+  --color-accent: 109 40 217; /* #6D28D9 — electric violet */
+
+  /* Ink & surface */
+  --color-dark: 11 21 51; /* #0B1533 */
+  --color-light: 247 249 252; /* #F7F9FC */
   --color-white: 255 255 255;
-  --color-success: 16 185 129;
-  --color-warning: 245 158 11;
-  --color-error: 239 68 68;
+
+  /* Status */
+  --color-success: 10 122 83;
+  --color-warning: 180 83 9;
+  --color-error: 220 38 38;
 
   /* Surfaces */
   --background: 255 255 255;
-  --foreground: 15 23 42;
-  --muted: 100 116 139;
-  --border: 226 232 240;
-  --ring: 0 102 255;
+  --foreground: 11 21 51;
+  --muted: 63 75 97;
+  --border: 203 211 228;
+  --ring: 27 98 240;
+
+  /*
+   * Gradient text stops, split by the surface they sit on. Keeping these as
+   * variables makes the light/dark pairing auditable in one place.
+   */
+  --gradient-text-from: #1b62f0; /* 5.2:1 on white */
+  --gradient-text-to: #6d28d9; /* 7.0:1 on white */
+  --gradient-text-on-dark-from: #8fb6ff; /* 8.4:1 on #0B1533 */
+  --gradient-text-on-dark-to: #c9a6ff; /* 9.1:1 on #0B1533 */
 
   /* Typography */
   --font-display: var(--font-space-grotesk, "Space Grotesk", system-ui, sans-serif);
@@ -37,11 +51,11 @@
   --radius-2xl: 32px;
 
   /* Elevation */
-  --elevation-xs: 0 1px 2px 0 rgb(15 23 42 / 0.04);
-  --elevation-sm: 0 2px 4px 0 rgb(15 23 42 / 0.06), 0 1px 2px 0 rgb(15 23 42 / 0.04);
-  --elevation-md: 0 8px 16px -4px rgb(15 23 42 / 0.08), 0 4px 6px -2px rgb(15 23 42 / 0.04);
-  --elevation-lg: 0 16px 32px -8px rgb(15 23 42 / 0.12), 0 8px 16px -4px rgb(15 23 42 / 0.06);
-  --elevation-xl: 0 24px 48px -12px rgb(15 23 42 / 0.16), 0 12px 24px -6px rgb(15 23 42 / 0.08);
+  --elevation-xs: 0 1px 2px 0 rgb(11 21 51 / 0.05);
+  --elevation-sm: 0 2px 4px 0 rgb(11 21 51 / 0.06), 0 1px 2px 0 rgb(11 21 51 / 0.04);
+  --elevation-md: 0 8px 16px -4px rgb(11 21 51 / 0.08), 0 4px 6px -2px rgb(11 21 51 / 0.04);
+  --elevation-lg: 0 16px 32px -8px rgb(11 21 51 / 0.12), 0 8px 16px -4px rgb(11 21 51 / 0.06);
+  --elevation-xl: 0 24px 48px -12px rgb(11 21 51 / 0.16), 0 12px 24px -6px rgb(11 21 51 / 0.08);
 
   /* Motion */
   --motion-fast: 150ms;
@@ -50,6 +64,16 @@
   --motion-slower: 500ms;
   --motion-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --motion-ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+
+  /* Sticky header height — used for scroll-margin so anchors clear the header. */
+  --header-height: 4rem;
+  color-scheme: light;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 5rem;
+  }
 }
 
 /* ---------------------------------------------------------------------- */
@@ -61,11 +85,15 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
+    /* Anchor targets must not hide behind the sticky header. */
+    scroll-padding-top: calc(var(--header-height) + 1rem);
   }
 
   body {
-    @apply bg-light text-dark font-sans text-body-16;
+    @apply bg-white text-dark font-sans text-body-16;
     min-height: 100dvh;
+    /* Guard against long unbroken strings (URLs, IDs) blowing out layout. */
+    overflow-wrap: break-word;
   }
 
   h1,
@@ -73,6 +101,7 @@
   h3,
   h4 {
     @apply font-display text-dark;
+    text-wrap: balance;
   }
 
   h1 {
@@ -88,12 +117,22 @@
     @apply text-h4-24;
   }
 
+  /*
+   * 8.6:1 on white. The previous `text-dark/70` produced a value that drifted
+   * once the ink ramp changed; a token keeps body copy auditable.
+   */
   p {
-    @apply text-body-16 text-dark/70;
+    @apply text-body-16 text-dark-500;
+  }
+
+  /* Anchors inherit by default so they stay legible inside dark bands. */
+  a {
+    color: inherit;
+    text-underline-offset: 0.2em;
   }
 
   ::selection {
-    background-color: rgb(var(--color-primary) / 0.2);
+    background-color: rgb(var(--color-primary) / 0.18);
     color: rgb(var(--color-dark));
   }
 
@@ -107,6 +146,94 @@
   /* Reset focus for mouse users. */
   :focus:not(:focus-visible) {
     outline: none;
+  }
+
+  /* Inputs inherit the brand font instead of the UA default. */
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  /* Placeholder copy at 4.6:1 on white — readable, still clearly secondary. */
+  ::placeholder {
+    color: rgb(102 116 142);
+    opacity: 1;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Components                                                              */
+/* ---------------------------------------------------------------------- */
+@layer components {
+  /*
+   * Inverted surface guard.
+   *
+   * Applied by <Section tone="dark|gradient"> and other dark bands. Base-layer
+   * heading/paragraph colors are ink-on-light, so without this a paragraph
+   * dropped into a dark band renders navy-on-navy. This makes the inversion a
+   * property of the container rather than something every child must remember.
+   */
+  .on-dark {
+    color: rgb(255 255 255 / 0.92);
+  }
+  .on-dark h1,
+  .on-dark h2,
+  .on-dark h3,
+  .on-dark h4 {
+    color: #fff;
+  }
+  .on-dark p {
+    color: rgb(255 255 255 / 0.78);
+  }
+  .on-dark :focus-visible {
+    outline-color: #fff;
+  }
+
+  /*
+   * Scroll-reveal states driven by <Reveal>. Kept in CSS (not JS) so the
+   * animation runs on the compositor and never blocks the main thread.
+   */
+  .reveal {
+    transition-property: opacity, transform;
+    transition-duration: 500ms;
+    transition-timing-function: var(--motion-ease-out-expo);
+    will-change: opacity, transform;
+  }
+  .reveal[data-reveal="shown"] {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal[data-reveal="pending"] {
+      opacity: 0;
+    }
+    .reveal[data-reveal="pending"][data-reveal-from="up"] {
+      transform: translateY(14px);
+    }
+    .reveal[data-reveal="pending"][data-reveal-from="down"] {
+      transform: translateY(-14px);
+    }
+  }
+
+  /* Skip link — visible only once focused. */
+  .skip-link {
+    @apply sr-only;
+  }
+  .skip-link:focus-visible {
+    @apply not-sr-only fixed left-4 top-4 z-[100] rounded-md bg-dark px-4 py-3 text-small-14 font-semibold text-white shadow-elevation-lg;
   }
 }
 
@@ -135,28 +262,80 @@
   .shimmer {
     background-image: linear-gradient(
       90deg,
-      rgb(241 245 249) 0%,
-      rgb(226 232 240) 50%,
-      rgb(241 245 249) 100%
+      rgb(238 242 248) 0%,
+      rgb(203 211 228) 50%,
+      rgb(238 242 248) 100%
     );
     background-size: 200% 100%;
     animation: shimmer 2s linear infinite;
   }
 
-  /* Gradient text helpers. */
-  .text-gradient-blue-cyan {
-    background: linear-gradient(135deg, #0066ff 0%, #00f5ff 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+  /* ------------------------------------------------------------------ */
+  /* Gradient text                                                       */
+  /*                                                                     */
+  /* `background-clip: text` requires a transparent fill, so an          */
+  /* unsupported engine renders nothing at all. Each utility therefore   */
+  /* paints a solid, AA-compliant `color` first and only clears the fill */
+  /* inside an @supports guard — the text can never disappear.           */
+  /* ------------------------------------------------------------------ */
+  .text-gradient-brand {
+    color: var(--gradient-text-to);
+    background-image: linear-gradient(
+      120deg,
+      var(--gradient-text-from) 0%,
+      var(--gradient-text-to) 100%
+    );
   }
+
+  .text-gradient-on-dark {
+    color: var(--gradient-text-on-dark-to);
+    background-image: linear-gradient(
+      120deg,
+      var(--gradient-text-on-dark-from) 0%,
+      var(--gradient-text-on-dark-to) 100%
+    );
+  }
+
+  /*
+   * Deprecated aliases kept so any un-migrated call site stays legible.
+   * Both previously ended at #00F5FF (1.2:1 on white) — the cause of the
+   * invisible headline highlights. Prefer the two utilities above.
+   */
+  .text-gradient-blue-cyan,
   .text-gradient-blue-purple {
-    background: linear-gradient(135deg, #0066ff 0%, #6a0dad 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: var(--gradient-text-to);
+    background-image: linear-gradient(
+      120deg,
+      var(--gradient-text-from) 0%,
+      var(--gradient-text-to) 100%
+    );
+  }
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .text-gradient-brand,
+    .text-gradient-on-dark,
+    .text-gradient-blue-cyan,
+    .text-gradient-blue-purple {
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      /* Keeps descenders from being clipped by the painted box. */
+      padding-bottom: 0.06em;
+      margin-bottom: -0.06em;
+    }
+  }
+
+  /* Windows High Contrast — restore a real, system-provided text color. */
+  @media (forced-colors: active) {
+    .text-gradient-brand,
+    .text-gradient-on-dark,
+    .text-gradient-blue-cyan,
+    .text-gradient-blue-purple {
+      -webkit-text-fill-color: currentColor;
+      color: CanvasText;
+      background-image: none;
+    }
   }
 
   /* Hairline border using a gradient — useful for premium cards. */
@@ -171,13 +350,28 @@
     inset: 0;
     padding: 1px;
     border-radius: inherit;
-    background: linear-gradient(135deg, #0066ff 0%, #00f5ff 100%);
+    background: linear-gradient(135deg, #1b62f0 0%, #6d28d9 100%);
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
+  }
+
+  /* Soft brand aura for hero / CTA backdrops. */
+  .brand-aura {
+    background-image:
+      radial-gradient(40rem 24rem at 72% 32%, rgb(27 98 240 / 0.28), transparent 62%),
+      radial-gradient(34rem 22rem at 18% 74%, rgb(109 40 217 / 0.3), transparent 58%);
+  }
+
+  /* Faint grid texture for dark bands. */
+  .grid-texture {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+    background-size: 64px 64px;
   }
 }
 
