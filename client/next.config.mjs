@@ -1,8 +1,9 @@
 /**
  * Security headers.
  *
- * The site is fully static and makes no third-party requests at runtime, so the
- * CSP can stay tight. `'unsafe-inline'` is required for style-src because
+ * Pages are static; the one server surface is `/api/chat`, which the browser
+ * calls same-origin, so `connect-src 'self'` still covers it and no third-party
+ * origin needs allowing. `'unsafe-inline'` is required for style-src because
  * Next injects inline <style> for critical CSS and next/font, and for script-src
  * because the App Router streams inline bootstrap scripts.
  */

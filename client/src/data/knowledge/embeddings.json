@@ -1,0 +1,1 @@
+{"model":"text-embedding-3-small","dimensions":1536,"generatedAt":"","chunks":[],"placeholder":"Run `npm run knowledge:build` with OPENAI_API_KEY set to populate this file. Until then retrieval returns nothing and the chatbot will say it has no information."}
