@@ -104,38 +104,28 @@ export default function RoleDetailPage({ params }: PageProps) {
             </Badge>
           </div>
 
-          <h1 className="mt-5 font-display text-display-72 text-balance">
-            {role.title}
-          </h1>
+          <h1 className="mt-5 text-balance font-display text-display-72">{role.title}</h1>
 
-          <p className="mt-6 max-w-2xl text-body-16 text-dark-600 text-pretty">
-            {role.summary}
-          </p>
+          <p className="mt-6 max-w-2xl text-pretty text-body-16 text-dark-600">{role.summary}</p>
 
           <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-4">
             <div>
               <dt className="text-[11px] font-semibold uppercase tracking-wider text-dark-500">
                 Location
               </dt>
-              <dd className="mt-1 text-small-14 font-medium text-dark">
-                {role.location}
-              </dd>
+              <dd className="mt-1 text-small-14 font-medium text-dark">{role.location}</dd>
             </div>
             <div>
               <dt className="text-[11px] font-semibold uppercase tracking-wider text-dark-500">
                 Compensation
               </dt>
-              <dd className="mt-1 text-small-14 font-medium text-dark">
-                {role.salaryRange}
-              </dd>
+              <dd className="mt-1 text-small-14 font-medium text-dark">{role.salaryRange}</dd>
             </div>
             <div>
               <dt className="text-[11px] font-semibold uppercase tracking-wider text-dark-500">
                 Employment type
               </dt>
-              <dd className="mt-1 text-small-14 font-medium text-dark">
-                {role.type}
-              </dd>
+              <dd className="mt-1 text-small-14 font-medium text-dark">{role.type}</dd>
             </div>
           </dl>
 
@@ -151,11 +141,7 @@ export default function RoleDetailPage({ params }: PageProps) {
       <Section spacing="md" tone="muted" containerSize="wide">
         <div className="grid gap-6 lg:grid-cols-3">
           <Card variant="flat" size="lg" className="bg-white">
-            <CheckList
-              title="What you'll own"
-              items={role.responsibilities}
-              tone="primary"
-            />
+            <CheckList title="What you'll own" items={role.responsibilities} tone="primary" />
           </Card>
           <Card variant="flat" size="lg" className="bg-white">
             <CheckList title="What we're looking for" items={role.requirements} />
@@ -183,9 +169,7 @@ export default function RoleDetailPage({ params }: PageProps) {
 
           <div className="space-y-4">
             <Card variant="flat" size="lg" className="bg-white">
-              <h3 className="font-display text-h4-24 text-dark">
-                Our hiring process
-              </h3>
+              <h3 className="font-display text-h4-24 text-dark">Our hiring process</h3>
               <ol className="mt-4 space-y-3">
                 {[
                   "Intro call — 30 minutes with a hiring lead",
@@ -194,10 +178,7 @@ export default function RoleDetailPage({ params }: PageProps) {
                   "Team conversations — three 30-minute chats",
                   "Offer — written, within 48 hours",
                 ].map((step, idx) => (
-                  <li
-                    key={step}
-                    className="flex gap-3 text-small-14 text-dark-700"
-                  >
+                  <li key={step} className="flex gap-3 text-small-14 text-dark-700">
                     <span
                       aria-hidden="true"
                       className="inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[11px] font-semibold text-primary"
@@ -209,22 +190,19 @@ export default function RoleDetailPage({ params }: PageProps) {
                 ))}
               </ol>
               <p className="mt-5 border-t border-dark/10 pt-4 text-small-14 text-dark-500">
-                Fifteen days end to end. You will know where you stand at every
-                step.
+                Fifteen days end to end. You will know where you stand at every step.
               </p>
             </Card>
 
             <Card variant="flat" size="lg" className="bg-white">
-              <h3 className="font-display text-h4-24 text-dark">
-                Questions first?
-              </h3>
-              <p className="mt-2 text-small-14 text-dark-600 text-pretty">
-                Email us before you apply if anything is unclear. A hiring lead
-                will answer — not a recruiting inbox.
+              <h3 className="font-display text-h4-24 text-dark">Questions first?</h3>
+              <p className="mt-2 text-pretty text-small-14 text-dark-600">
+                Email us before you apply if anything is unclear. A hiring lead will answer — not a
+                recruiting inbox.
               </p>
               <a
                 href={`mailto:careers@technovate.ai?subject=${encodeURIComponent(
-                  `Question about ${role.title}`,
+                  `Question about ${role.title}`
                 )}`}
                 className="mt-4 inline-flex text-small-14 font-semibold text-primary hover:underline"
               >

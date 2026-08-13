@@ -97,7 +97,7 @@
   }
 
   body {
-    @apply bg-white text-dark font-sans text-body-16;
+    @apply bg-white font-sans text-body-16 text-dark;
     min-height: 100dvh;
     /* Guard against long unbroken strings (URLs, IDs) blowing out layout. */
     overflow-wrap: break-word;

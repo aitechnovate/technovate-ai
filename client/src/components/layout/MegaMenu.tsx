@@ -28,13 +28,7 @@ type MegaMenuProps = {
  * - Closes on Escape, on outside click, and on link selection.
  * - Keyboard navigable (Tab cycles focus inside the panel).
  */
-export function MegaMenu({
-  group,
-  open,
-  onClose,
-  onOpenGroup,
-  activeGroup,
-}: MegaMenuProps) {
+export function MegaMenu({ group, open, onClose, onOpenGroup, activeGroup }: MegaMenuProps) {
   const panelRef = React.useRef<HTMLDivElement>(null);
 
   // Close on Escape.
@@ -85,7 +79,7 @@ export function MegaMenu({
              */
             "absolute left-0 right-0 top-full z-40 hidden lg:block",
             "max-h-[calc(100dvh-var(--header-height))] overflow-y-auto",
-            "border-b border-dark/10 bg-white/95 shadow-elevation-lg backdrop-blur-md",
+            "border-b border-dark/10 bg-white/95 shadow-elevation-lg backdrop-blur-md"
           )}
           onMouseEnter={() => onOpenGroup?.(group.label)}
           onMouseLeave={() => onOpenGroup?.(null as unknown as string)}
@@ -93,9 +87,7 @@ export function MegaMenu({
           <div className="mx-auto grid w-full max-w-container gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[2fr_1fr] lg:px-8 lg:py-10">
             <div>
               <div className="mb-2 flex items-baseline justify-between">
-                <h2 className="font-display text-h4-24 text-dark">
-                  {group.label}
-                </h2>
+                <h2 className="font-display text-h4-24 text-dark">{group.label}</h2>
                 <Link
                   href={group.href}
                   onClick={onClose}
@@ -106,9 +98,7 @@ export function MegaMenu({
                 </Link>
               </div>
               {group.description && (
-                <p className="mb-6 text-small-14 text-dark-500">
-                  {group.description}
-                </p>
+                <p className="mb-6 text-small-14 text-dark-500">{group.description}</p>
               )}
               <ul
                 className={cn(
@@ -116,7 +106,7 @@ export function MegaMenu({
                   group.children.length <= 4 && "grid-cols-1 sm:grid-cols-2",
                   group.children.length > 4 && group.children.length <= 6 && "grid-cols-2",
                   group.children.length > 6 && "grid-cols-2 lg:grid-cols-3",
-                  isActive && "ring-1 ring-primary/20",
+                  isActive && "ring-1 ring-primary/20"
                 )}
               >
                 {group.children.map((child) => (
@@ -151,16 +141,16 @@ export function MegaMenu({
                 <span className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-2 py-0.5 text-[11px] font-medium uppercase tracking-wider">
                   Featured
                 </span>
-                <h3 className="mt-4 font-display text-h3-30 text-balance">
+                <h3 className="mt-4 text-balance font-display text-h3-30">
                   {group.featured.title}
                 </h3>
-                <p className="mt-2 text-small-14 text-white/80 text-pretty">
+                <p className="mt-2 text-pretty text-small-14 text-white/80">
                   {group.featured.description}
                 </p>
                 <Link
                   href={group.featured.href}
                   onClick={onClose}
-                  className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-small-14 font-semibold text-primary transition-all hover:bg-white/90 hover:gap-2"
+                  className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-small-14 font-semibold text-primary transition-all hover:gap-2 hover:bg-white/90"
                 >
                   {group.featured.cta}
                   <ArrowRight className="size-3.5" />

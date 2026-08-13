@@ -56,8 +56,7 @@ function ChatbotMock() {
     {
       id: "init",
       role: "assistant",
-      text:
-        "Ask me anything about Technovate AI's case studies and engineering notes. Answers are grounded in our published work.",
+      text: "Ask me anything about Technovate AI's case studies and engineering notes. Answers are grounded in our published work.",
     },
   ]);
   const [input, setInput] = React.useState("");
@@ -90,12 +89,8 @@ function ChatbotMock() {
             <Bot className="size-4" />
           </span>
           <div>
-            <p className="font-display text-small-14 font-semibold">
-              RAG Copilot
-            </p>
-            <p className="text-[11px] text-dark-500">
-              Demo · answers are scripted
-            </p>
+            <p className="font-display text-small-14 font-semibold">RAG Copilot</p>
+            <p className="text-[11px] text-dark-500">Demo · answers are scripted</p>
           </div>
         </div>
         <Badge variant="success" size="sm" leadingDot>
@@ -112,9 +107,7 @@ function ChatbotMock() {
             transition={{ duration: 0.25 }}
             className={cn(
               "max-w-[88%] rounded-lg px-3 py-2 leading-relaxed",
-              m.role === "user"
-                ? "ml-auto bg-primary text-white"
-                : "mr-auto bg-light-200 text-dark",
+              m.role === "user" ? "ml-auto bg-primary text-white" : "mr-auto bg-light-200 text-dark"
             )}
           >
             {m.text}
@@ -123,7 +116,7 @@ function ChatbotMock() {
                 {m.citations.map((c) => (
                   <li
                     key={c}
-                    className="inline-flex items-center rounded-full bg-white px-2 py-0.5 text-[10px] font-medium text-dark-500 border border-dark/10"
+                    className="inline-flex items-center rounded-full border border-dark/10 bg-white px-2 py-0.5 text-[10px] font-medium text-dark-500"
                   >
                     {c}
                   </li>
@@ -148,10 +141,7 @@ function ChatbotMock() {
         </AnimatePresence>
       </div>
 
-      <form
-        onSubmit={onSubmit}
-        className="flex items-center gap-2 border-t border-dark/10 p-3"
-      >
+      <form onSubmit={onSubmit} className="flex items-center gap-2 border-t border-dark/10 p-3">
         <input
           type="text"
           aria-label="Ask the copilot"
@@ -186,7 +176,7 @@ function WorkflowMock() {
 
   return (
     <div className="h-full overflow-hidden rounded-xl border border-dark/10 bg-white p-6 shadow-elevation-md">
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
         <h3 className="font-display text-h4-24">Agent workflow</h3>
         <Badge variant="default" size="sm">
           Support agent
@@ -212,19 +202,14 @@ function WorkflowMock() {
             <span
               className={cn(
                 "inline-flex size-9 shrink-0 items-center justify-center rounded-md text-small-14 text-white shadow-elevation-xs",
-                step.color,
+                step.color
               )}
             >
               {step.icon}
             </span>
-            <span className="text-small-14 font-medium text-dark">
-              {step.label}
-            </span>
+            <span className="text-small-14 font-medium text-dark">{step.label}</span>
             {idx < steps.length - 1 && (
-              <span
-                aria-hidden="true"
-                className="ml-auto h-px w-6 bg-dark/20"
-              />
+              <span aria-hidden="true" className="ml-auto h-px w-6 bg-dark/20" />
             )}
           </motion.div>
         ))}
@@ -240,12 +225,10 @@ function ChartMock() {
   const max = Math.max(...data);
   return (
     <div className="h-full overflow-hidden rounded-xl border border-dark/10 bg-white p-6 shadow-elevation-md">
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
         <div>
           <h3 className="font-display text-h4-24">Tickets resolved by AI</h3>
-          <p className="text-small-14 text-dark-500">
-            Rolling 12 months · Northwind Health
-          </p>
+          <p className="text-small-14 text-dark-500">Rolling 12 months · Northwind Health</p>
         </div>
         <Badge variant="success" size="sm" leadingDot>
           +260% YoY
@@ -281,37 +264,30 @@ function ChartMock() {
 
 export function AIDemo({ className }: DemoProps) {
   return (
-    <Section
-      spacing="lg"
-      tone="default"
-      className={className}
-      containerSize="wide"
-    >
+    <Section spacing="lg" tone="default" className={className} containerSize="wide">
       <div className="mb-12 max-w-2xl">
         <Badge variant="accent" size="sm" className="mb-3">
           <Sparkles className="size-3" /> Live demos
         </Badge>
-        <h2 className="font-display text-h1-48 text-balance">
-          AI you can{" "}
-          <span className="text-gradient-brand">try, not just read about.</span>
+        <h2 className="text-balance font-display text-h1-48">
+          AI you can <span className="text-gradient-brand">try, not just read about.</span>
         </h2>
         <p className="mt-3 text-body-16 text-dark-600">
-          A scripted chatbot, a typical agent workflow, and a real chart from
-          one of our engagements. No API calls — just a feel for how the
-          pieces fit together.
+          A scripted chatbot, a typical agent workflow, and a real chart from one of our
+          engagements. No API calls — just a feel for how the pieces fit together.
         </p>
       </div>
 
       <Tabs defaultValue="chat" className="w-full">
         <TabsList className="mb-6">
           <TabsTrigger value="chat">
-            <Bot className="size-3.5 mr-2" aria-hidden="true" /> Chatbot
+            <Bot className="mr-2 size-3.5" aria-hidden="true" /> Chatbot
           </TabsTrigger>
           <TabsTrigger value="workflow">
-            <Workflow className="size-3.5 mr-2" aria-hidden="true" /> Workflow
+            <Workflow className="mr-2 size-3.5" aria-hidden="true" /> Workflow
           </TabsTrigger>
           <TabsTrigger value="chart">
-            <BarChart3 className="size-3.5 mr-2" aria-hidden="true" /> Analytics
+            <BarChart3 className="mr-2 size-3.5" aria-hidden="true" /> Analytics
           </TabsTrigger>
         </TabsList>
         {/* Fixed height (the mock scrolls internally) — shortened on phones. */}

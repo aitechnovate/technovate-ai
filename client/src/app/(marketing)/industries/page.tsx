@@ -30,15 +30,14 @@ export default function IndustriesPage() {
           <Badge variant="default" size="sm" className="mb-4">
             Industries
           </Badge>
-          <h1 className="font-display text-display-72 text-balance leading-[1.05]">
+          <h1 className="text-balance font-display text-display-72 leading-[1.05]">
             Domain-tuned AI for{" "}
             <span className="text-gradient-brand">the sectors we know best.</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-body-16 text-dark-600 text-pretty">
-            We&apos;ve shipped production AI in regulated, high-stakes
-            environments. The verticals below are where we have the deepest
-            bench — and the longest reference list of compliance-cleared
-            deployments.
+          <p className="mt-6 max-w-2xl text-pretty text-body-16 text-dark-600">
+            We&apos;ve shipped production AI in regulated, high-stakes environments. The verticals
+            below are where we have the deepest bench — and the longest reference list of
+            compliance-cleared deployments.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg">
@@ -78,48 +77,30 @@ export default function IndustriesPage() {
                 </Link>
               </div>
 
-              <h2 className="mt-5 font-display text-h2-36 text-dark">
-                {ind.name}
-              </h2>
-              <p className="mt-2 text-body-16 text-dark-600 text-pretty">
-                {ind.description}
-              </p>
+              <h2 className="mt-5 font-display text-h2-36 text-dark">{ind.name}</h2>
+              <p className="mt-2 text-pretty text-body-16 text-dark-600">{ind.description}</p>
 
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-lg bg-light-200 p-4">
                   <p className="text-[11px] font-semibold uppercase tracking-wider text-dark-500">
                     Headline metric
                   </p>
-                  <p className="font-display text-h4-24 text-primary">
-                    {ind.metric.value}
-                  </p>
-                  <p className="mt-1 text-[13px] text-dark-600">
-                    {ind.metric.label}
-                  </p>
+                  <p className="font-display text-h4-24 text-primary">{ind.metric.value}</p>
+                  <p className="mt-1 text-[13px] text-dark-600">{ind.metric.label}</p>
                 </div>
                 <div className="rounded-lg bg-light-200 p-4">
                   <p className="text-[11px] font-semibold uppercase tracking-wider text-dark-500">
                     At scale
                   </p>
-                  <p className="font-display text-h4-24 text-dark">
-                    {ind.stat.value}
-                  </p>
-                  <p className="mt-1 text-[13px] text-dark-600">
-                    {ind.stat.label}
-                  </p>
+                  <p className="font-display text-h4-24 text-dark">{ind.stat.value}</p>
+                  <p className="mt-1 text-[13px] text-dark-600">{ind.stat.label}</p>
                 </div>
               </div>
 
               <ul className="mt-6 grid grid-cols-1 gap-2 border-t border-dark/10 pt-5 xs:grid-cols-2">
                 {ind.useCases.map((uc) => (
-                  <li
-                    key={uc}
-                    className="flex items-start gap-2 text-small-14 text-dark-700"
-                  >
-                    <Icon
-                      name="CheckCircle2"
-                      className="mt-0.5 size-4 shrink-0 text-success"
-                    />
+                  <li key={uc} className="flex items-start gap-2 text-small-14 text-dark-700">
+                    <Icon name="CheckCircle2" className="mt-0.5 size-4 shrink-0 text-success" />
                     <span>{uc}</span>
                   </li>
                 ))}
@@ -137,15 +118,14 @@ export default function IndustriesPage() {
               <Badge variant="success" size="sm" leadingDot>
                 Compliance-ready
               </Badge>
-              <h2 className="mt-3 font-display text-h2-36 text-dark text-balance">
+              <h2 className="mt-3 text-balance font-display text-h2-36 text-dark">
                 We work inside the rules you already operate under.
               </h2>
             </div>
-            <p className="text-body-16 text-dark-600 text-pretty">
-              Every industry engagement begins with a compliance review —
-              SOC 2, ISO 27001, HIPAA, GDPR, PCI-DSS, FedRAMP. We&apos;ll
-              work with your security and legal teams from day one and sign
-              whatever addenda your procurement team needs.
+            <p className="text-pretty text-body-16 text-dark-600">
+              Every industry engagement begins with a compliance review — SOC 2, ISO 27001, HIPAA,
+              GDPR, PCI-DSS, FedRAMP. We&apos;ll work with your security and legal teams from day
+              one and sign whatever addenda your procurement team needs.
             </p>
           </div>
         </Card>

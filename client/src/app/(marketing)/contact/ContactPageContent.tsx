@@ -255,7 +255,7 @@ export function ContactPageContent() {
               title="Phone"
               value={siteInfo.phone}
               href={`tel:${siteInfo.phone.replace(/[^+\d]/g, "")}`}
-              note="Mon–Fri, 9am–6pm PT."
+              note="Mon–Fri, 9am–6pm PKT."
             />
             <ContactCard
               icon={<MessageCircle className="size-5" />}
@@ -266,12 +266,10 @@ export function ContactPageContent() {
             />
             <ContactCard
               icon={<MapPin className="size-5" />}
-              title="San Francisco HQ"
-              value={`${siteInfo.address.city}, ${siteInfo.address.region}`}
-              href={`https://maps.google.com/?q=${encodeURIComponent(
-                `${siteInfo.address.street}, ${siteInfo.address.city}, ${siteInfo.address.region} ${siteInfo.address.postal}`,
-              )}`}
-              note={`${siteInfo.address.street} · ${siteInfo.address.postal}`}
+              title="Lahore HQ"
+              value={`${siteInfo.address.city}, ${siteInfo.address.country}`}
+              href={`https://maps.google.com/?q=${encodeURIComponent(siteInfo.address.formatted)}`}
+              note={siteInfo.address.formatted}
             />
             <ContactCard
               icon={<Calendar className="size-5" />}

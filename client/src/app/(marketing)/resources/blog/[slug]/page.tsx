@@ -10,12 +10,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/Avatar";
 import { CTABanner } from "@/components/ui/CTABanner";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { RelatedGrid } from "@/components/sections/shared/DetailSections";
-import {
-  blogPosts,
-  getBlogPost,
-  getRelatedPosts,
-  type ContentBlock,
-} from "@/data/content";
+import { blogPosts, getBlogPost, getRelatedPosts, type ContentBlock } from "@/data/content";
 import { siteInfo } from "@/data/site";
 import { formatDate } from "@/lib/utils";
 
@@ -95,13 +90,9 @@ export default function BlogPostPage({ params }: PageProps) {
           {post.category}
         </Badge>
 
-        <h1 className="font-display text-display-72 text-balance">
-          {post.title}
-        </h1>
+        <h1 className="text-balance font-display text-display-72">{post.title}</h1>
 
-        <p className="mt-6 text-body-16 text-dark-600 text-pretty">
-          {post.excerpt}
-        </p>
+        <p className="mt-6 text-pretty text-body-16 text-dark-600">{post.excerpt}</p>
 
         <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-dark/10 pt-6">
           <Avatar>
@@ -112,9 +103,7 @@ export default function BlogPostPage({ params }: PageProps) {
             <p className="text-dark-500">{post.author.role}</p>
           </div>
           <div className="ml-auto text-small-14 text-dark-500">
-            <time dateTime={post.publishedAt}>
-              {formatDate(post.publishedAt)}
-            </time>
+            <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
             <span className="mx-2" aria-hidden="true">
               ·
             </span>
@@ -188,16 +177,14 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
   switch (block.type) {
     case "heading":
       return (
-        <h2 className="mt-12 font-display text-h2-36 text-dark text-balance first:mt-0">
+        <h2 className="mt-12 text-balance font-display text-h2-36 text-dark first:mt-0">
           {block.text}
         </h2>
       );
 
     case "paragraph":
       return (
-        <p className="mt-5 text-body-16 leading-relaxed text-dark-700 text-pretty">
-          {block.text}
-        </p>
+        <p className="mt-5 text-pretty text-body-16 leading-relaxed text-dark-700">{block.text}</p>
       );
 
     case "list":
@@ -218,7 +205,7 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
     case "quote":
       return (
         <figure className="mt-10 border-l-4 border-primary/40 pl-6">
-          <blockquote className="font-display text-h4-24 text-dark text-balance">
+          <blockquote className="text-balance font-display text-h4-24 text-dark">
             {block.text}
           </blockquote>
           {block.attribution && (

@@ -28,8 +28,8 @@ type MobileNavProps = {
 function focusableWithin(root: HTMLElement) {
   return Array.from(
     root.querySelectorAll<HTMLElement>(
-      'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])',
-    ),
+      'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )
   ).filter((el) => el.offsetParent !== null);
 }
 
@@ -128,20 +128,12 @@ export function MobileNav({ open, onClose, navGroups }: MobileNavProps) {
               >
                 <LogoLockup markClassName="h-8" />
               </Link>
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Close menu"
-                onClick={onClose}
-              >
+              <Button variant="ghost" size="icon" aria-label="Close menu" onClick={onClose}>
                 <X className="size-5" />
               </Button>
             </div>
 
-            <nav
-              aria-label="Mobile primary"
-              className="flex-1 overflow-y-auto px-5 py-4"
-            >
+            <nav aria-label="Mobile primary" className="flex-1 overflow-y-auto px-5 py-4">
               <ul className="space-y-1">
                 {navGroups.map((group) => {
                   const hasChildren = !!group.children?.length;
@@ -165,20 +157,18 @@ export function MobileNav({ open, onClose, navGroups }: MobileNavProps) {
                     <li key={group.label}>
                       <button
                         type="button"
-                        onClick={() =>
-                          setExpanded(isExpanded ? null : group.label)
-                        }
+                        onClick={() => setExpanded(isExpanded ? null : group.label)}
                         aria-expanded={isExpanded}
                         className={cn(
                           "flex w-full items-center justify-between rounded-md px-3 py-3 text-body-16 font-medium transition-colors hover:bg-light-200",
-                          isExpanded && "bg-light-200 text-primary",
+                          isExpanded && "bg-light-200 text-primary"
                         )}
                       >
                         {group.label}
                         <ChevronDown
                           className={cn(
                             "size-4 transition-transform duration-200",
-                            isExpanded && "rotate-180",
+                            isExpanded && "rotate-180"
                           )}
                           aria-hidden="true"
                         />
@@ -221,23 +211,13 @@ export function MobileNav({ open, onClose, navGroups }: MobileNavProps) {
               </ul>
             </nav>
 
-            <div className="border-t border-dark/10 p-5 space-y-2">
-              <Button
-                asChild
-                variant="outline"
-                size="md"
-                fullWidth
-              >
+            <div className="space-y-2 border-t border-dark/10 p-5">
+              <Button asChild variant="outline" size="md" fullWidth>
                 <Link href="/contact" onClick={onClose}>
                   Sign in
                 </Link>
               </Button>
-              <Button
-                asChild
-                variant="primary"
-                size="md"
-                fullWidth
-              >
+              <Button asChild variant="primary" size="md" fullWidth>
                 <Link href="/contact" onClick={onClose}>
                   Book consultation
                 </Link>

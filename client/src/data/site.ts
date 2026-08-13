@@ -12,14 +12,15 @@ export const siteInfo = {
     "Enterprise AI consulting, automation, and custom development. We help ambitious teams ship AI that pays for itself.",
   url: "https://technovate.ai",
   email: "hello@technovate.ai",
-  phone: "+1 (415) 555-0142",
-  whatsapp: "+14155550142",
+  phone: "+92 324 9717097",
+  /** wa.me requires digits only — no "+", spaces, or punctuation. */
+  whatsapp: "923249717097",
   address: {
-    street: "548 Market St, Suite 42000",
-    city: "San Francisco",
-    region: "CA",
-    postal: "94104",
-    country: "United States",
+    street: "Mustafa Town",
+    city: "Lahore",
+    country: "Pakistan",
+    /** Single-line form for map links and anywhere the parts would read oddly. */
+    formatted: "Mustafa Town, Lahore, Pakistan",
   },
   founded: "2022",
   social: {

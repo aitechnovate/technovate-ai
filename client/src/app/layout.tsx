@@ -58,10 +58,13 @@ export const metadata: Metadata = {
     description: siteInfo.description,
     images: [LOGO],
   },
-  icons: {
-    icon: [{ url: LOGO, type: "image/jpeg" }],
-    apple: [{ url: LOGO }],
-  },
+  /*
+   * No `icons` key on purpose. The full lockup is unreadable at 16px, so the
+   * favicon is the "TA" monogram cropped out of it — shipped as the file
+   * conventions `favicon.ico`, `icon.png`, and `apple-icon.png` in this
+   * directory, which Next discovers and links automatically. Declaring `icons`
+   * here would override them and put the illegible lockup back.
+   */
   robots: { index: true, follow: true },
 };
 
@@ -89,8 +92,6 @@ const organizationSchema = {
     "@type": "PostalAddress",
     streetAddress: siteInfo.address.street,
     addressLocality: siteInfo.address.city,
-    addressRegion: siteInfo.address.region,
-    postalCode: siteInfo.address.postal,
     addressCountry: siteInfo.address.country,
   },
   sameAs: Object.values(siteInfo.social),

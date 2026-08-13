@@ -63,7 +63,7 @@ export function Logo({
         className={cn(
           "h-auto w-full rounded-lg object-contain",
           tone === "onDark" && "bg-white p-2",
-          className,
+          className
         )}
       />
     );
@@ -77,7 +77,7 @@ export function Logo({
         tone === "onDark"
           ? "rounded-md bg-white p-0.5 shadow-elevation-sm ring-1 ring-white/20"
           : "rounded-md",
-        className,
+        className
       )}
       style={{ aspectRatio: `${MARK_CROP.w} / ${MARK_CROP.h}` }}
     >
@@ -123,17 +123,11 @@ export function LogoLockup({
              * rendering bug. These are the two sizes the lockup has always used.
              */
             "font-display text-[1.0625rem] font-bold leading-none tracking-tight sm:text-[1.5rem] sm:leading-[1.3]",
-            tone === "onDark" ? "text-white" : "text-dark",
+            tone === "onDark" ? "text-white" : "text-dark"
           )}
         >
           Technovate{" "}
-          <span
-            className={
-              tone === "onDark" ? "text-primary-300" : "text-gradient-brand"
-            }
-          >
-            AI
-          </span>
+          <span className={tone === "onDark" ? "text-primary-300" : "text-gradient-brand"}>AI</span>
         </span>
       </span>
     </span>

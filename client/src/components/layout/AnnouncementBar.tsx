@@ -71,24 +71,22 @@ export function AnnouncementBar({
          */
         "relative isolate flex w-full flex-wrap items-center justify-center gap-x-3 gap-y-1.5 px-4 py-2.5 text-small-14",
         variantClass,
-        className,
+        className
       )}
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.12),transparent_60%)]"
       />
-      <span className="relative min-w-0 text-center font-medium text-balance">
-        {text}
-      </span>
+      <span className="relative min-w-0 text-balance text-center font-medium">{text}</span>
       {cta && (
         <a
           href={cta.href}
           className={cn(
             "relative inline-flex items-center gap-1 rounded-full px-3 py-1 text-small-14 font-semibold transition-colors",
             variant === "default" || variant === "dark"
-              ? "bg-white/10 hover:bg-white/20 text-light"
-              : "bg-white/20 hover:bg-white/30 text-white",
+              ? "bg-white/10 text-light hover:bg-white/20"
+              : "bg-white/20 text-white hover:bg-white/30"
           )}
         >
           {cta.label}
@@ -102,7 +100,7 @@ export function AnnouncementBar({
           "relative inline-flex size-7 items-center justify-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40",
           variant === "default" || variant === "dark"
             ? "text-light/70 hover:bg-white/10 hover:text-light"
-            : "text-white/80 hover:bg-white/20 hover:text-white",
+            : "text-white/80 hover:bg-white/20 hover:text-white"
         )}
         aria-label="Dismiss announcement"
       >

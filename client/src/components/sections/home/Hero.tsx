@@ -11,13 +11,10 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 
-const HeroScene = dynamic(
-  () => import("@/components/three/HeroScene").then((m) => m.HeroScene),
-  {
-    ssr: false,
-    loading: () => null,
-  },
-);
+const HeroScene = dynamic(() => import("@/components/three/HeroScene").then((m) => m.HeroScene), {
+  ssr: false,
+  loading: () => null,
+});
 
 type HeroProps = {
   className?: string;
@@ -42,17 +39,14 @@ export function Hero({ className }: HeroProps) {
         "on-dark relative isolate overflow-hidden bg-dark text-white",
         /* Fluid height: never taller than the viewport on short phones. */
         "min-h-[min(34rem,100svh)] sm:min-h-[40rem] lg:min-h-[45rem]",
-        className,
+        className
       )}
     >
       {/* Layered backdrop: ink base → brand aura → grid texture. */}
       <div aria-hidden="true" className="absolute inset-0 bg-gradient-ink" />
       <div
         aria-hidden="true"
-        className={cn(
-          "brand-aura absolute inset-0",
-          !reduced && "motion-safe:animate-aurora",
-        )}
+        className={cn("brand-aura absolute inset-0", !reduced && "motion-safe:animate-aurora")}
       />
       <div
         aria-hidden="true"
@@ -82,10 +76,7 @@ export function Hero({ className }: HeroProps) {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl space-y-6"
         >
-          <Badge
-            variant="glass"
-            className="mx-auto bg-white/10 text-white border-white/20"
-          >
+          <Badge variant="glass" className="mx-auto border-white/20 bg-white/10 text-white">
             <Sparkles className="size-3" />
             <span>Innovate. Automate. Elevate.</span>
           </Badge>
@@ -95,16 +86,15 @@ export function Hero({ className }: HeroProps) {
             the breakpoint ladder this heading used to carry is no longer
             needed — the token itself scales.
           */}
-          <h1 className="font-display text-display-72 text-balance text-white">
+          <h1 className="text-balance font-display text-display-72 text-white">
             {/* On-dark gradient stops — the light-surface pair renders near-black here. */}
             <span className="text-gradient-on-dark">Innovate.</span>{" "}
-            <span className="text-gradient-on-dark">Automate.</span>{" "}
-            <span>Elevate.</span>
+            <span className="text-gradient-on-dark">Automate.</span> <span>Elevate.</span>
           </h1>
 
-          <p className="mx-auto max-w-2xl text-body-16 text-white/85 text-pretty sm:text-h4-24 sm:leading-relaxed">
-            Enterprise AI consulting, automation, and custom development. We
-            help ambitious teams ship AI that pays for itself.
+          <p className="mx-auto max-w-2xl text-pretty text-body-16 text-white/85 sm:text-h4-24 sm:leading-relaxed">
+            Enterprise AI consulting, automation, and custom development. We help ambitious teams
+            ship AI that pays for itself.
           </p>
 
           <div className="flex flex-col items-stretch gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
@@ -136,9 +126,7 @@ export function Hero({ className }: HeroProps) {
           aria-hidden="true"
         >
           <div className="flex flex-col items-center gap-2 text-white/70">
-            <span className="text-[11px] uppercase tracking-widest">
-              Scroll
-            </span>
+            <span className="text-[11px] uppercase tracking-widest">Scroll</span>
             <span className="block h-8 w-px bg-gradient-to-b from-white/60 to-transparent" />
           </div>
         </motion.div>

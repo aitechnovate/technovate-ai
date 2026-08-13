@@ -18,8 +18,8 @@ export const TabsList = React.forwardRef<
        * ~400px. `max-w-full` + horizontal scroll keeps the pill row intact and
        * swipeable instead of pushing the page sideways.
        */
-      "inline-flex h-11 max-w-full items-center justify-start overflow-x-auto rounded-md bg-light-200 p-1 text-dark-500 no-scrollbar",
-      className,
+      "no-scrollbar inline-flex h-11 max-w-full items-center justify-start overflow-x-auto rounded-md bg-light-200 p-1 text-dark-500",
+      className
     )}
     {...props}
   />
@@ -38,7 +38,7 @@ export const TabsTrigger = React.forwardRef<
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 " +
         "disabled:pointer-events-none disabled:opacity-50 " +
         "data-[state=active]:bg-white data-[state=active]:text-dark data-[state=active]:shadow-elevation-xs",
-      className,
+      className
     )}
     {...props}
   />
@@ -54,7 +54,7 @@ export const TabsContent = React.forwardRef<
     className={cn(
       "mt-4 focus-visible:outline-none",
       "data-[state=active]:animate-fade-in",
-      className,
+      className
     )}
     {...props}
   />

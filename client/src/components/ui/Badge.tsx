@@ -3,7 +3,9 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-  "inline-flex items-center gap-1.5 rounded-full font-medium transition-colors duration-150",
+  /* `shrink-0`: badges sit opposite headings in `justify-between` rows and
+     must not compress into an unreadable sliver on narrow viewports. */
+  "inline-flex shrink-0 items-center gap-1.5 rounded-full font-medium transition-colors duration-150",
   {
     variants: {
       /*
@@ -19,8 +21,7 @@ const badgeVariants = cva(
         error: "border border-error/20 bg-error/10 text-error",
         neutral: "border border-dark/10 bg-dark/[0.04] text-dark-600",
         outline: "border border-dark/20 bg-transparent text-dark-600",
-        glass:
-          "border border-white/30 bg-white/15 text-white backdrop-blur-md",
+        glass: "border border-white/30 bg-white/15 text-white backdrop-blur-md",
         gradient: "border border-transparent bg-gradient-brand text-white",
         outlineGradient: "gradient-border bg-transparent text-dark",
       },
@@ -34,7 +35,7 @@ const badgeVariants = cva(
       variant: "default",
       size: "md",
     },
-  },
+  }
 );
 
 export type BadgeProps = React.HTMLAttributes<HTMLSpanElement> &
@@ -46,14 +47,7 @@ export type BadgeProps = React.HTMLAttributes<HTMLSpanElement> &
  * Tag/pill/chip used for status, industry, and category markers.
  * Optional `leadingDot` adds a small dot before the label.
  */
-export function Badge({
-  className,
-  variant,
-  size,
-  leadingDot,
-  children,
-  ...props
-}: BadgeProps) {
+export function Badge({ className, variant, size, leadingDot, children, ...props }: BadgeProps) {
   return (
     <span className={cn(badgeVariants({ variant, size }), className)} {...props}>
       {leadingDot && (
@@ -67,7 +61,7 @@ export function Badge({
             (!variant || variant === "default") && "bg-primary",
             variant === "secondary" && "bg-secondary",
             variant === "accent" && "bg-accent",
-            variant === "neutral" && "bg-dark-500",
+            variant === "neutral" && "bg-dark-500"
           )}
         />
       )}

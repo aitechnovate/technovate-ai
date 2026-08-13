@@ -30,14 +30,13 @@ export default function SolutionsPage() {
           <Badge variant="default" size="sm" className="mb-4">
             Solutions
           </Badge>
-          <h1 className="font-display text-display-72 text-balance leading-[1.05]">
-            Nine capabilities.{" "}
-            <span className="text-gradient-brand">One accountable team.</span>
+          <h1 className="text-balance font-display text-display-72 leading-[1.05]">
+            Nine capabilities. <span className="text-gradient-brand">One accountable team.</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-body-16 text-dark-600 text-pretty">
-            Strategy, build, deploy, and optimize — under one roof. Pick a
-            single capability or compose them into a multi-quarter engagement.
-            We&apos;ll bring the same senior engineers to both.
+          <p className="mt-6 max-w-2xl text-pretty text-body-16 text-dark-600">
+            Strategy, build, deploy, and optimize — under one roof. Pick a single capability or
+            compose them into a multi-quarter engagement. We&apos;ll bring the same senior engineers
+            to both.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg">
@@ -75,18 +74,13 @@ export default function SolutionsPage() {
                   </Badge>
                 )}
               </div>
-              <h2 className="mt-5 font-display text-h2-36 text-dark group-hover:text-primary transition-colors">
+              <h2 className="mt-5 font-display text-h2-36 text-dark transition-colors group-hover:text-primary">
                 {sol.title}
               </h2>
-              <p className="mt-2 text-body-16 text-dark-600 text-pretty">
-                {sol.longDescription}
-              </p>
+              <p className="mt-2 text-pretty text-body-16 text-dark-600">{sol.longDescription}</p>
               <ul className="mt-6 grid grid-cols-1 gap-2 border-t border-dark/10 pt-5 xs:grid-cols-2">
                 {sol.capabilities.map((c) => (
-                  <li
-                    key={c}
-                    className="flex items-center gap-2 text-small-14 text-dark-700"
-                  >
+                  <li key={c} className="flex items-center gap-2 text-small-14 text-dark-700">
                     <span
                       aria-hidden="true"
                       className="size-1.5 shrink-0 rounded-full bg-primary"
@@ -111,13 +105,12 @@ export default function SolutionsPage() {
             <Badge variant="secondary" size="sm" className="mb-3">
               How we engage
             </Badge>
-            <h2 className="font-display text-h1-48 text-balance">
+            <h2 className="text-balance font-display text-h1-48">
               Three engagement models. One standard of work.
             </h2>
             <p className="mt-3 text-body-16 text-dark-600">
-              We&apos;ll help you pick the right shape for the problem —
-              sometimes the right answer is a 2-week pilot, sometimes it&apos;s
-              a 12-month retainer.
+              We&apos;ll help you pick the right shape for the problem — sometimes the right answer
+              is a 2-week pilot, sometimes it&apos;s a 12-month retainer.
             </p>
           </div>
           <div className="space-y-4">
@@ -141,23 +134,15 @@ export default function SolutionsPage() {
                   "Best for continuous improvement. Senior engineers, monthly cadence, month-to-month.",
               },
             ].map((m) => (
-              <Card
-                key={m.title}
-                variant="flat"
-                className="flex items-start gap-4 bg-white"
-              >
+              <Card key={m.title} variant="flat" className="flex items-start gap-4 bg-white">
                 <div className="flex-1 space-y-1">
                   <div className="flex items-center justify-between gap-3">
-                    <h3 className="font-display text-h4-24 text-dark">
-                      {m.title}
-                    </h3>
+                    <h3 className="font-display text-h4-24 text-dark">{m.title}</h3>
                     <span className="text-[11px] font-medium uppercase tracking-wider text-dark-500">
                       {m.duration}
                     </span>
                   </div>
-                  <p className="text-small-14 text-dark-600">
-                    {m.description}
-                  </p>
+                  <p className="text-small-14 text-dark-600">{m.description}</p>
                 </div>
               </Card>
             ))}

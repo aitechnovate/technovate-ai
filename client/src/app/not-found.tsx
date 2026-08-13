@@ -37,14 +37,12 @@ export default function NotFound() {
             <Badge variant="default" size="sm" className="mb-4">
               404
             </Badge>
-            <h1 className="font-display text-display-72 text-balance leading-[1.05]">
-              That page is{" "}
-              <span className="text-gradient-brand">somewhere else.</span>
+            <h1 className="text-balance font-display text-display-72 leading-[1.05]">
+              That page is <span className="text-gradient-brand">somewhere else.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-body-16 text-dark-600 text-pretty">
-              The link you followed may be broken, or the page may have moved
-              when we shipped the latest version of the site. Let&apos;s get
-              you back to something useful.
+            <p className="mt-6 max-w-xl text-pretty text-body-16 text-dark-600">
+              The link you followed may be broken, or the page may have moved when we shipped the
+              latest version of the site. Let&apos;s get you back to something useful.
             </p>
 
             <form
@@ -81,9 +79,7 @@ export default function NotFound() {
 
           {/* Popular links */}
           <div className="rounded-2xl border border-dark/10 bg-white p-6 sm:p-8">
-            <h2 className="font-display text-h4-24 text-dark">
-              Popular pages
-            </h2>
+            <h2 className="font-display text-h4-24 text-dark">Popular pages</h2>
             <p className="mt-2 text-small-14 text-dark-500">
               The most-visited destinations on our site.
             </p>

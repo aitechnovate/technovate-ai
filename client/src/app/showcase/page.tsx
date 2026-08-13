@@ -63,13 +63,7 @@ import {
   Search,
   Sparkles,
 } from "lucide-react";
-import {
-  portfolioItems,
-  caseStudies,
-  blogPosts,
-  faqItems,
-  testimonials,
-} from "@/data/site";
+import { portfolioItems, caseStudies, blogPosts, faqItems, testimonials } from "@/data/site";
 
 export const metadata = {
   title: "UI Showcase — Technovate AI",
@@ -200,23 +194,27 @@ export default function ShowcasePage() {
       {/* Hero --------------------------------------------------- */}
       <Section spacing="lg" tone="gradient">
         <div className="space-y-4 text-center text-white">
-          <Badge variant="glass" className="mx-auto bg-white/15 text-white border-white/30">
+          <Badge variant="glass" className="mx-auto border-white/30 bg-white/15 text-white">
             <Sparkles className="size-3" />
             Phase 2 — UI Primitives
           </Badge>
-          <h1 className="font-display text-h1-48 sm:text-display-72 text-balance">
+          <h1 className="text-balance font-display text-h1-48 sm:text-display-72">
             UI Component Showcase
           </h1>
-          <p className="mx-auto max-w-2xl text-body-16 text-white/80 text-pretty">
-            A visual smoke test for every primitive built in Phase 2. Each
-            section exercises one category of component — buttons, cards,
-            dialogs, tabs, accordions, KPIs, and more.
+          <p className="mx-auto max-w-2xl text-pretty text-body-16 text-white/80">
+            A visual smoke test for every primitive built in Phase 2. Each section exercises one
+            category of component — buttons, cards, dialogs, tabs, accordions, KPIs, and more.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <Button asChild variant="secondary" size="lg">
               <a href="#buttons">Browse components</a>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-white/30 text-white hover:bg-white/10"
+            >
               <Link href="/">Back to home</Link>
             </Button>
           </div>
@@ -288,7 +286,11 @@ export default function ShowcasePage() {
 
       {/* Avatars ------------------------------------------------ */}
       <Section spacing="md">
-        <SectionHeader eyebrow="Atoms" title="Avatars" description="Radix-based with image + initials fallback." />
+        <SectionHeader
+          eyebrow="Atoms"
+          title="Avatars"
+          description="Radix-based with image + initials fallback."
+        />
         <div className="flex items-end gap-4">
           <Avatar className="size-6">
             <AvatarFallback size="xs">XS</AvatarFallback>
@@ -328,9 +330,7 @@ export default function ShowcasePage() {
                 <Icon name="HelpCircle" />
               </Button>
             </TooltipTrigger>
-            <TooltipContent>
-              Tooltips support any side positioning.
-            </TooltipContent>
+            <TooltipContent>Tooltips support any side positioning.</TooltipContent>
           </Tooltip>
         </div>
       </Section>
@@ -348,7 +348,11 @@ export default function ShowcasePage() {
               { variant: "flat", title: "Flat", desc: "Border, no shadow. Use for dense lists." },
               { variant: "elevated", title: "Elevated", desc: "Subtle elevation, no border." },
               { variant: "bordered", title: "Bordered", desc: "Brand color hairline accent." },
-              { variant: "gradient", title: "Gradient border", desc: "Premium look with gradient." },
+              {
+                variant: "gradient",
+                title: "Gradient border",
+                desc: "Premium look with gradient.",
+              },
             ] as const
           ).map((c) => (
             <Card key={c.variant} variant={c.variant} interactive>
@@ -362,7 +366,9 @@ export default function ShowcasePage() {
                 </p>
               </CardContent>
               <CardFooter>
-                <Badge variant="neutral" size="sm">card · {c.variant}</Badge>
+                <Badge variant="neutral" size="sm">
+                  card · {c.variant}
+                </Badge>
                 <ArrowRight className="size-4 text-dark-400" />
               </CardFooter>
             </Card>
@@ -429,8 +435,8 @@ export default function ShowcasePage() {
           <TabsContent value="overview" className="rounded-lg border border-dark/10 p-6">
             <h3 className="font-display text-h4-24">Overview</h3>
             <p className="mt-2 text-small-14 text-dark-600">
-              Each tab uses Radix for correct a11y roles, arrow-key navigation,
-              and focus management.
+              Each tab uses Radix for correct a11y roles, arrow-key navigation, and focus
+              management.
             </p>
           </TabsContent>
           <TabsContent value="specs" className="rounded-lg border border-dark/10 p-6">
@@ -522,17 +528,21 @@ export default function ShowcasePage() {
               <DialogHeader>
                 <DialogTitle>Book your AI Maturity Assessment</DialogTitle>
                 <DialogDescription>
-                  A free 30-minute strategy call. We will benchmark your readiness
-                  and produce a one-page recommendation.
+                  A free 30-minute strategy call. We will benchmark your readiness and produce a
+                  one-page recommendation.
                 </DialogDescription>
               </DialogHeader>
               <div className="grid gap-3">
                 <div className="grid gap-1.5">
-                  <Label htmlFor="dlg-name" required>Name</Label>
+                  <Label htmlFor="dlg-name" required>
+                    Name
+                  </Label>
                   <Input id="dlg-name" placeholder="Jordan Lee" />
                 </div>
                 <div className="grid gap-1.5">
-                  <Label htmlFor="dlg-email" required>Email</Label>
+                  <Label htmlFor="dlg-email" required>
+                    Email
+                  </Label>
                   <Input id="dlg-email" type="email" placeholder="jordan@company.com" />
                 </div>
               </div>
@@ -558,19 +568,22 @@ export default function ShowcasePage() {
           <div className="space-y-4">
             <div>
               <div className="mb-1 flex justify-between text-small-14">
-                <span>Engagement</span><span>78%</span>
+                <span>Engagement</span>
+                <span>78%</span>
               </div>
               <Progress value={78} />
             </div>
             <div>
               <div className="mb-1 flex justify-between text-small-14">
-                <span>Deployment</span><span>42%</span>
+                <span>Deployment</span>
+                <span>42%</span>
               </div>
               <Progress value={42} variant="striped" />
             </div>
             <div>
               <div className="mb-1 flex justify-between text-small-14">
-                <span>Adoption</span><span>96%</span>
+                <span>Adoption</span>
+                <span>96%</span>
               </div>
               <Progress value={96} variant="default" size="lg" />
             </div>
@@ -628,9 +641,7 @@ export default function ShowcasePage() {
           ))}
         </div>
         <div className="mt-6">
-          {caseStudies[0] && (
-            <CaseStudyCard item={caseStudies[0]} layout="media" />
-          )}
+          {caseStudies[0] && <CaseStudyCard item={caseStudies[0]} layout="media" />}
         </div>
       </Section>
 
@@ -724,16 +735,63 @@ export default function ShowcasePage() {
         <div className="grid grid-cols-4 gap-3 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12">
           {(
             [
-              "Activity", "Award", "BadgeCheck", "BarChart3", "Bell", "Bot",
-              "Brain", "Briefcase", "Building2", "Calculator", "Calendar",
-              "Check", "CheckCircle", "Cloud", "Code", "Cpu", "Database",
-              "DollarSign", "Download", "Eye", "Factory", "FileText", "Filter",
-              "Gauge", "Globe", "GraduationCap", "HeartPulse", "Lightbulb",
-              "Link2", "Loader2", "Lock", "Mail", "MapPin", "MessageSquare",
-              "Mic", "Package", "Phone", "Plug", "Quote", "Rocket", "Search",
-              "Send", "Server", "Settings", "Shield", "Sparkles", "Star",
-              "Stethoscope", "Target", "Terminal", "TrendingUp", "Truck",
-              "User", "Users", "Wand2", "Wrench", "Zap",
+              "Activity",
+              "Award",
+              "BadgeCheck",
+              "BarChart3",
+              "Bell",
+              "Bot",
+              "Brain",
+              "Briefcase",
+              "Building2",
+              "Calculator",
+              "Calendar",
+              "Check",
+              "CheckCircle",
+              "Cloud",
+              "Code",
+              "Cpu",
+              "Database",
+              "DollarSign",
+              "Download",
+              "Eye",
+              "Factory",
+              "FileText",
+              "Filter",
+              "Gauge",
+              "Globe",
+              "GraduationCap",
+              "HeartPulse",
+              "Lightbulb",
+              "Link2",
+              "Loader2",
+              "Lock",
+              "Mail",
+              "MapPin",
+              "MessageSquare",
+              "Mic",
+              "Package",
+              "Phone",
+              "Plug",
+              "Quote",
+              "Rocket",
+              "Search",
+              "Send",
+              "Server",
+              "Settings",
+              "Shield",
+              "Sparkles",
+              "Star",
+              "Stethoscope",
+              "Target",
+              "Terminal",
+              "TrendingUp",
+              "Truck",
+              "User",
+              "Users",
+              "Wand2",
+              "Wrench",
+              "Zap",
             ] as const
           ).map((name) => (
             <div
@@ -752,7 +810,9 @@ export default function ShowcasePage() {
         <Container>
           <div className="flex flex-wrap items-center justify-between gap-3 border-t border-dark/10 pt-8 text-small-14 text-dark-500">
             <span>Phase 2 — UI Primitives showcase.</span>
-            <Link href="/" className="text-primary hover:underline">Back to home</Link>
+            <Link href="/" className="text-primary hover:underline">
+              Back to home
+            </Link>
           </div>
         </Container>
       </Section>

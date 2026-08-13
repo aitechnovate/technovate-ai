@@ -16,11 +16,7 @@ type CaseStudyCardProps = {
  *  - stacked: title, problem/solution/outcome stack.
  *  - media: aside with a hero cover; used in homepage hero case study.
  */
-export function CaseStudyCard({
-  item,
-  layout = "stacked",
-  className,
-}: CaseStudyCardProps) {
+export function CaseStudyCard({ item, layout = "stacked", className }: CaseStudyCardProps) {
   const href = `/case-studies/${item.slug}`;
 
   if (layout === "media") {
@@ -29,7 +25,7 @@ export function CaseStudyCard({
         href={href}
         className={cn(
           "group grid gap-0 overflow-hidden rounded-xl border border-dark/10 bg-white shadow-elevation-sm transition-all duration-350 hover:shadow-elevation-md lg:grid-cols-[1.1fr_1fr]",
-          className,
+          className
         )}
       >
         <div
@@ -43,15 +39,15 @@ export function CaseStudyCard({
             </Badge>
             <ArrowUpRight className="size-5 text-dark-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
           </div>
-          <h3 className="font-display text-h2-36 text-dark text-balance group-hover:text-primary transition-colors">
+          <h3 className="text-balance font-display text-h2-36 text-dark transition-colors group-hover:text-primary">
             {item.title}
           </h3>
           <p className="text-small-14 text-dark-500">{item.client}</p>
-          <p className="text-body-16 text-dark-600 line-clamp-3">{item.outcome}</p>
-          <dl className="mt-auto grid grid-cols-3 gap-3 border-t border-dark/10 pt-4">
+          <p className="line-clamp-3 text-body-16 text-dark-600">{item.outcome}</p>
+          <dl className="mt-auto grid grid-cols-3 gap-x-2 gap-y-3 border-t border-dark/10 pt-4 sm:gap-x-3">
             {item.metrics.map((m) => (
-              <div key={m.label} className="space-y-0.5">
-                <dt className="text-[11px] uppercase tracking-wider text-dark-500">
+              <div key={m.label} className="min-w-0 space-y-0.5">
+                <dt className="break-words text-[11px] uppercase tracking-wider text-dark-500">
                   {m.label}
                 </dt>
                 <dd className="font-display text-h4-24 text-dark">{m.value}</dd>
@@ -68,7 +64,7 @@ export function CaseStudyCard({
       href={href}
       className={cn(
         "group flex h-full flex-col rounded-lg border border-dark/10 bg-white p-6 transition-all duration-350 hover:-translate-y-1 hover:shadow-elevation-md",
-        className,
+        className
       )}
     >
       <div className="flex items-center justify-between">
@@ -78,20 +74,18 @@ export function CaseStudyCard({
         <ArrowUpRight className="size-4 text-dark-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
       </div>
 
-      <h3 className="mt-4 font-display text-h3-30 text-dark text-balance group-hover:text-primary transition-colors">
+      <h3 className="mt-4 text-balance font-display text-h3-30 text-dark transition-colors group-hover:text-primary">
         {item.title}
       </h3>
 
       <p className="text-small-14 text-dark-500">{item.client}</p>
 
-      <p className="mt-3 text-small-14 text-dark-600 line-clamp-3">
-        {item.problem}
-      </p>
+      <p className="mt-3 line-clamp-3 text-small-14 text-dark-600">{item.problem}</p>
 
-      <dl className="mt-auto grid grid-cols-3 gap-3 border-t border-dark/10 pt-4">
+      <dl className="mt-auto grid grid-cols-3 gap-x-2 gap-y-3 border-t border-dark/10 pt-4 sm:gap-x-3">
         {item.metrics.map((m) => (
-          <div key={m.label} className="space-y-0.5">
-            <dt className="text-[11px] uppercase tracking-wider text-dark-500">
+          <div key={m.label} className="min-w-0 space-y-0.5">
+            <dt className="break-words text-[11px] uppercase tracking-wider text-dark-500">
               {m.label}
             </dt>
             <dd className="font-display text-body-16 text-dark">{m.value}</dd>

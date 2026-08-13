@@ -143,7 +143,7 @@ export function Footer({ className }: FooterProps) {
             <li className="inline-flex items-center gap-2">
               <MapPin className="size-4" aria-hidden="true" />
               <span>
-                {siteInfo.address.city}, {siteInfo.address.region}
+                {siteInfo.address.city}, {siteInfo.address.country}
               </span>
             </li>
           </ul>
