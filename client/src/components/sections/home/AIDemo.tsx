@@ -314,7 +314,8 @@ export function AIDemo({ className }: DemoProps) {
             <BarChart3 className="size-3.5 mr-2" aria-hidden="true" /> Analytics
           </TabsTrigger>
         </TabsList>
-        <TabsContent value="chat" className="h-[480px]">
+        {/* Fixed height (the mock scrolls internally) — shortened on phones. */}
+        <TabsContent value="chat" className="h-[26rem] sm:h-[30rem]">
           <ChatbotMock />
         </TabsContent>
         <TabsContent value="workflow">

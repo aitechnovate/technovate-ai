@@ -117,7 +117,12 @@ export function LogoLockup({
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "font-display text-[1.0625rem] font-bold tracking-tight sm:text-h4-24",
+            /*
+             * Pinned sizes rather than the `h4-24` token: the heading scale is
+             * fluid, and a wordmark that breathes with the viewport reads as a
+             * rendering bug. These are the two sizes the lockup has always used.
+             */
+            "font-display text-[1.0625rem] font-bold leading-none tracking-tight sm:text-[1.5rem] sm:leading-[1.3]",
             tone === "onDark" ? "text-white" : "text-dark",
           )}
         >

@@ -40,7 +40,8 @@ export function Hero({ className }: HeroProps) {
     <section
       className={cn(
         "on-dark relative isolate overflow-hidden bg-dark text-white",
-        "min-h-[640px] lg:min-h-[720px]",
+        /* Fluid height: never taller than the viewport on short phones. */
+        "min-h-[min(34rem,100svh)] sm:min-h-[40rem] lg:min-h-[45rem]",
         className,
       )}
     >
@@ -74,7 +75,7 @@ export function Hero({ className }: HeroProps) {
         className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_60%,transparent_28%,rgba(11,21,51,0.78)_100%)]"
       />
 
-      <Container className="relative z-[2] flex min-h-[640px] flex-col items-center justify-center py-24 text-center lg:min-h-[720px] lg:py-32">
+      <Container className="relative z-[2] flex min-h-[min(34rem,100svh)] flex-col items-center justify-center py-20 text-center sm:min-h-[40rem] sm:py-24 lg:min-h-[45rem] lg:py-32">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -90,10 +91,11 @@ export function Hero({ className }: HeroProps) {
           </Badge>
 
           {/*
-            Type scale climbs with the viewport. It previously opened at
-            display-72 and stepped *down* at `sm`, which overflowed phones.
+            `display-72` is fluid (36px → 72px between 320px and ~1000px), so
+            the breakpoint ladder this heading used to carry is no longer
+            needed — the token itself scales.
           */}
-          <h1 className="font-display text-h2-36 text-balance text-white sm:text-h1-48 lg:text-display-72">
+          <h1 className="font-display text-display-72 text-balance text-white">
             {/* On-dark gradient stops — the light-surface pair renders near-black here. */}
             <span className="text-gradient-on-dark">Innovate.</span>{" "}
             <span className="text-gradient-on-dark">Automate.</span>{" "}

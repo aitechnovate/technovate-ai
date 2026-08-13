@@ -78,7 +78,13 @@ export function MegaMenu({
           role="menu"
           aria-label={`${group.label} menu`}
           className={cn(
-            "absolute left-0 right-0 top-full z-40",
+            /*
+             * Desktop surface only — the mobile drawer covers <lg. Gating it
+             * here means a stale `open` state can never paint over a phone.
+             * It also scrolls rather than overflowing short laptop viewports.
+             */
+            "absolute left-0 right-0 top-full z-40 hidden lg:block",
+            "max-h-[calc(100dvh-var(--header-height))] overflow-y-auto",
             "border-b border-dark/10 bg-white/95 shadow-elevation-lg backdrop-blur-md",
           )}
           onMouseEnter={() => onOpenGroup?.(group.label)}

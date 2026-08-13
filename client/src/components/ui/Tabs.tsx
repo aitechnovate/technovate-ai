@@ -13,7 +13,12 @@ export const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-11 items-center justify-center rounded-md bg-light-200 p-1 text-dark-500",
+      /*
+       * Triggers are `whitespace-nowrap`, so a three-up list overflows below
+       * ~400px. `max-w-full` + horizontal scroll keeps the pill row intact and
+       * swipeable instead of pushing the page sideways.
+       */
+      "inline-flex h-11 max-w-full items-center justify-start overflow-x-auto rounded-md bg-light-200 p-1 text-dark-500 no-scrollbar",
       className,
     )}
     {...props}
@@ -28,7 +33,7 @@ export const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-4 py-1.5 text-small-14 font-medium " +
+      "inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-small-14 font-medium sm:px-4 " +
         "transition-all duration-250 ease-out-expo " +
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 " +
         "disabled:pointer-events-none disabled:opacity-50 " +

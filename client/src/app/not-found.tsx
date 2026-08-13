@@ -87,7 +87,7 @@ export default function NotFound() {
             <p className="mt-2 text-small-14 text-dark-500">
               The most-visited destinations on our site.
             </p>
-            <ul className="mt-6 grid grid-cols-2 gap-2">
+            <ul className="mt-6 grid grid-cols-1 gap-2 xs:grid-cols-2">
               {popularLinks.map((l) => (
                 <li key={l.href}>
                   <Link

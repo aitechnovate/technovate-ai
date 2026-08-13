@@ -95,7 +95,7 @@ export default function BlogPostPage({ params }: PageProps) {
           {post.category}
         </Badge>
 
-        <h1 className="font-display text-h1-48 text-balance leading-[1.1] sm:text-display-72">
+        <h1 className="font-display text-display-72 text-balance">
           {post.title}
         </h1>
 

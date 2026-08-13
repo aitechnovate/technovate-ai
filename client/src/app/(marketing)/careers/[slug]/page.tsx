@@ -104,7 +104,7 @@ export default function RoleDetailPage({ params }: PageProps) {
             </Badge>
           </div>
 
-          <h1 className="mt-5 font-display text-h1-48 text-balance leading-[1.1] sm:text-display-72">
+          <h1 className="mt-5 font-display text-display-72 text-balance">
             {role.title}
           </h1>
 

@@ -110,7 +110,7 @@ export default function IndustriesPage() {
                 </div>
               </div>
 
-              <ul className="mt-6 grid grid-cols-2 gap-2 border-t border-dark/10 pt-5">
+              <ul className="mt-6 grid grid-cols-1 gap-2 border-t border-dark/10 pt-5 xs:grid-cols-2">
                 {ind.useCases.map((uc) => (
                   <li
                     key={uc}

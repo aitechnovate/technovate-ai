@@ -81,7 +81,7 @@ export default function SolutionsPage() {
               <p className="mt-2 text-body-16 text-dark-600 text-pretty">
                 {sol.longDescription}
               </p>
-              <ul className="mt-6 grid grid-cols-2 gap-2 border-t border-dark/10 pt-5">
+              <ul className="mt-6 grid grid-cols-1 gap-2 border-t border-dark/10 pt-5 xs:grid-cols-2">
                 {sol.capabilities.map((c) => (
                   <li
                     key={c}
@@ -89,7 +89,7 @@ export default function SolutionsPage() {
                   >
                     <span
                       aria-hidden="true"
-                      className="size-1.5 rounded-full bg-primary"
+                      className="size-1.5 shrink-0 rounded-full bg-primary"
                     />
                     {c}
                   </li>

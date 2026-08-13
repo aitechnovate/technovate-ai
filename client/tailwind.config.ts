@@ -114,25 +114,37 @@ const config: Config = {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       fontSize: {
-        // Display & heading scale
+        /*
+         * Display & heading scale — fluid.
+         *
+         * The name records the *maximum* size (display-72 tops out at 72px);
+         * each step interpolates down to a legible mobile size via clamp() so
+         * the ~40 call sites that use these tokens raw (`text-display-72` on an
+         * <h1>, `text-h1-48` on section headings) never need a breakpoint
+         * ladder of their own. Every preferred value keeps a rem term, so text
+         * still responds to the browser's font-size setting (WCAG 1.4.4).
+         *
+         * Each ramp is tuned to hit its minimum at 320px and its maximum around
+         * 1000–1024px, which is where the layouts reach their desktop form.
+         */
         "display-72": [
-          "4.5rem",
+          "clamp(2.25rem, 1.19rem + 5.3vw, 4.5rem)",
           { lineHeight: "1.05", letterSpacing: "-0.028em", fontWeight: "700" },
         ],
         "h1-48": [
-          "3rem",
+          "clamp(1.875rem, 1.36rem + 2.57vw, 3rem)",
           { lineHeight: "1.1", letterSpacing: "-0.022em", fontWeight: "700" },
         ],
         "h2-36": [
-          "2.25rem",
+          "clamp(1.625rem, 1.34rem + 1.43vw, 2.25rem)",
           { lineHeight: "1.15", letterSpacing: "-0.018em", fontWeight: "600" },
         ],
         "h3-30": [
-          "1.875rem",
+          "clamp(1.375rem, 1.146rem + 1.14vw, 1.875rem)",
           { lineHeight: "1.2", letterSpacing: "-0.014em", fontWeight: "600" },
         ],
         "h4-24": [
-          "1.5rem",
+          "clamp(1.125rem, 0.955rem + 0.86vw, 1.5rem)",
           { lineHeight: "1.3", letterSpacing: "-0.01em", fontWeight: "600" },
         ],
         "body-16": ["1rem", { lineHeight: "1.65", fontWeight: "400" }],

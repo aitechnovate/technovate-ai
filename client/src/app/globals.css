@@ -87,6 +87,13 @@
     scroll-behavior: smooth;
     /* Anchor targets must not hide behind the sticky header. */
     scroll-padding-top: calc(var(--header-height) + 1rem);
+    /*
+     * Backstop against horizontal scroll from decorative bleed (aura blobs,
+     * negative-margin carousels, wide gradients). `clip` rather than `hidden`
+     * on purpose: `hidden` would turn the viewport into a scroll container and
+     * break the sticky header, `clip` does not.
+     */
+    overflow-x: clip;
   }
 
   body {

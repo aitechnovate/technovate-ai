@@ -65,7 +65,11 @@ export function AnnouncementBar({
       role="region"
       aria-label="Site announcement"
       className={cn(
-        "relative isolate flex w-full items-center justify-center gap-3 px-4 py-2.5 text-small-14",
+        /*
+         * Wraps rather than truncates: at 320px the CTA pill and dismiss button
+         * left the message ~120px of room, which cut it to a few characters.
+         */
+        "relative isolate flex w-full flex-wrap items-center justify-center gap-x-3 gap-y-1.5 px-4 py-2.5 text-small-14",
         variantClass,
         className,
       )}
@@ -74,7 +78,9 @@ export function AnnouncementBar({
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.12),transparent_60%)]"
       />
-      <span className="relative truncate font-medium text-center">{text}</span>
+      <span className="relative min-w-0 text-center font-medium text-balance">
+        {text}
+      </span>
       {cta && (
         <a
           href={cta.href}

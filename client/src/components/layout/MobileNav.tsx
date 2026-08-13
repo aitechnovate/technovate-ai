@@ -24,22 +24,69 @@ type MobileNavProps = {
  * - Each group with children renders as a disclosure; groups without
  *   children render as a single link.
  */
+/** Focusable descendants, in DOM order, skipping anything hidden. */
+function focusableWithin(root: HTMLElement) {
+  return Array.from(
+    root.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])',
+    ),
+  ).filter((el) => el.offsetParent !== null);
+}
+
 export function MobileNav({ open, onClose, navGroups }: MobileNavProps) {
   const [expanded, setExpanded] = React.useState<string | null>(null);
+  const drawerRef = React.useRef<HTMLDivElement>(null);
+  const restoreFocusTo = React.useRef<HTMLElement | null>(null);
 
   // Lock scroll and reset expansion on open.
   React.useEffect(() => {
     if (open) setExpanded(null);
   }, [open]);
 
-  // Escape to close.
+  /*
+   * Focus management. The drawer is `aria-modal`, so focus has to move into it
+   * on open, stay inside while it is open, and return to the hamburger on
+   * close — otherwise a keyboard or screen-reader user tabs straight into the
+   * page behind the overlay.
+   */
   React.useEffect(() => {
     if (!open) return;
+
+    restoreFocusTo.current = document.activeElement as HTMLElement | null;
+    // Wait a frame so the entry animation has mounted the drawer contents.
+    const raf = requestAnimationFrame(() => {
+      const first = drawerRef.current && focusableWithin(drawerRef.current)[0];
+      first?.focus();
+    });
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (e.key !== "Tab" || !drawerRef.current) return;
+
+      const items = focusableWithin(drawerRef.current);
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+
+      if (e.shiftKey && (active === first || !drawerRef.current.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
+
     document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
+    return () => {
+      cancelAnimationFrame(raf);
+      document.removeEventListener("keydown", onKey);
+      restoreFocusTo.current?.focus();
+    };
   }, [open, onClose]);
 
   return (
@@ -65,11 +112,12 @@ export function MobileNav({ open, onClose, navGroups }: MobileNavProps) {
 
           {/* Drawer */}
           <motion.div
+            ref={drawerRef}
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-white shadow-elevation-xl"
+            className="absolute right-0 top-0 flex h-[100dvh] w-full max-w-md flex-col bg-white shadow-elevation-xl"
           >
             <div className="flex items-center justify-between border-b border-dark/10 px-5 py-4">
               <Link
@@ -148,7 +196,7 @@ export function MobileNav({ open, onClose, navGroups }: MobileNavProps) {
                               <Link
                                 href={group.href}
                                 onClick={onClose}
-                                className="block px-6 py-2 text-small-14 text-dark-500 hover:text-primary"
+                                className="block rounded-md px-6 py-3 text-small-14 text-dark-500 hover:bg-light-200 hover:text-primary"
                               >
                                 View all {group.label}
                               </Link>
@@ -158,7 +206,7 @@ export function MobileNav({ open, onClose, navGroups }: MobileNavProps) {
                                 <Link
                                   href={child.href}
                                   onClick={onClose}
-                                  className="block px-6 py-2 text-small-14 text-dark-700 hover:text-primary"
+                                  className="block rounded-md px-6 py-3 text-small-14 text-dark-700 hover:bg-light-200 hover:text-primary"
                                 >
                                   {child.label}
                                 </Link>
