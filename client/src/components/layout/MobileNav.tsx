@@ -217,9 +217,9 @@ export function MobileNav({ open, onClose, navGroups }: MobileNavProps) {
                   Sign in
                 </Link>
               </Button>
-              <Button asChild variant="primary" size="md" fullWidth>
+              <Button asChild variant="gradient" size="md" fullWidth>
                 <Link href="/contact" onClick={onClose}>
-                  Book consultation
+                  Book free consultation
                 </Link>
               </Button>
             </div>

@@ -65,7 +65,12 @@ export function Header({ navGroups = primaryNav, className }: HeaderProps) {
           className,
         )}
       >
-        <div className="mx-auto flex h-16 w-full max-w-container items-center justify-between gap-6 px-4 sm:px-6 lg:px-8 lg:h-20">
+        {/*
+          `min-h` rather than a fixed `h`: at a fixed height the CTA cluster
+          overflowed the bar (and got visually clipped by the bottom border)
+          whenever the row's intrinsic content was taller than 4rem.
+        */}
+        <div className="mx-auto flex min-h-16 w-full max-w-container items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:min-h-20 lg:gap-6 lg:px-8">
           {/* Logo */}
           <Link
             href="/"
@@ -127,8 +132,13 @@ export function Header({ navGroups = primaryNav, className }: HeaderProps) {
             })}
           </nav>
 
-          {/* CTA cluster */}
-          <div className="flex items-center gap-2">
+          {/*
+            CTA cluster. `shrink-0` so the nav can never squeeze the primary
+            action out of the bar, and the CTA itself appears from `sm` up —
+            it used to be `lg`-only, which hid the site's main conversion
+            action on every tablet and large phone.
+          */}
+          <div className="flex shrink-0 items-center gap-2">
             <Button
               asChild
               variant="ghost"
@@ -139,11 +149,14 @@ export function Header({ navGroups = primaryNav, className }: HeaderProps) {
             </Button>
             <Button
               asChild
-              variant="primary"
-              size="sm"
-              className="hidden lg:inline-flex"
+              variant="gradient"
+              size="md"
+              className="hidden sm:inline-flex"
             >
-              <Link href="/contact">Book consultation</Link>
+              <Link href="/contact">
+                <span className="lg:hidden">Book a call</span>
+                <span className="hidden lg:inline">Book free consultation</span>
+              </Link>
             </Button>
 
             {/* Mobile hamburger */}

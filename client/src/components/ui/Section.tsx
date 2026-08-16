@@ -53,6 +53,13 @@ export function Section({
     Tag,
     {
       className: cn("relative w-full", spacingClass[spacing], toneClass[tone], className),
+      /*
+       * Marks this element as a rhythm-managed band. globals.css uses it to
+       * trim the top padding of a page's first band, which otherwise reads as
+       * dead space under the sticky header. Full-bleed heroes that manage
+       * their own padding are plain <section>s and stay untouched.
+       */
+      "data-section": spacing,
       ...props,
     },
     hasContainer ? (

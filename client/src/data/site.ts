@@ -10,7 +10,12 @@ export const siteInfo = {
   tagline: "Innovate. Automate. Elevate.",
   description:
     "Enterprise AI consulting, automation, and custom development. We help ambitious teams ship AI that pays for itself.",
-  url: "https://technovate.ai",
+  /*
+   * The live domain. This feeds `metadataBase` (so every canonical and OG URL
+   * on the site resolves against it) and the same-origin check on the API
+   * routes — it was pointing at technovate.ai, which the site does not serve.
+   */
+  url: "https://www.technovateai.com",
   email: "hello@technovate.ai",
   phone: "+92 324 9717097",
   /** wa.me requires digits only — no "+", spaces, or punctuation. */

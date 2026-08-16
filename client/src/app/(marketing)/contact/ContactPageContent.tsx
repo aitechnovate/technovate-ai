@@ -47,13 +47,16 @@ export function ContactPageContent() {
   const [email, setEmail] = React.useState("");
   const [company, setCompany] = React.useState("");
   const [message, setMessage] = React.useState("");
+  const [budget, setBudget] = React.useState("");
+  /** Honeypot — hidden from humans, filled by naive bots. Never submitted empty. */
+  const [website, setWebsite] = React.useState("");
   const [errors, setErrors] = React.useState<{
     name?: string;
     email?: string;
     message?: string;
   }>({});
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const next: typeof errors = {};
     if (!name.trim()) next.name = "Please tell us your name.";
@@ -66,15 +69,42 @@ export function ContactPageContent() {
     if (Object.keys(next).length > 0) return;
 
     setSubmitting(true);
-    window.setTimeout(() => {
-      setSubmitting(false);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          company,
+          message,
+          inquiryType,
+          // Only meaningful for consulting enquiries — the field is hidden otherwise.
+          budget: inquiryType === "consulting" ? budget : "",
+          website,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = (await response.json().catch(() => null)) as { error?: string } | null;
+        toast.error(
+          data?.error ?? `We couldn't send that. Please email ${siteInfo.email} directly.`,
+        );
+        return;
+      }
+
       toast.success("Message received — we'll reply within 1 business day.");
       setName("");
       setEmail("");
       setCompany("");
       setMessage("");
+      setBudget("");
       setInquiryType("consulting");
-    }, 600);
+    } catch {
+      toast.error(`Network error. Please email ${siteInfo.email} directly.`);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -95,8 +125,8 @@ export function ContactPageContent() {
           </h1>
           <p className="mt-6 max-w-2xl text-body-16 text-dark-600 text-pretty">
             Form, email, phone, or WhatsApp — whichever feels right. For
-            procurement or security questionnaires, email hello@technovate.ai
-            and we&apos;ll loop in the right people.
+            procurement or security questionnaires, email {siteInfo.email} and
+            we&apos;ll loop in the right people.
           </p>
         </div>
       </Section>
@@ -115,6 +145,20 @@ export function ContactPageContent() {
             </p>
 
             <form onSubmit={onSubmit} className="mt-6 space-y-5" noValidate>
+              {/* Honeypot. Hidden from sighted users and from assistive tech. */}
+              <div aria-hidden="true" className="hidden">
+                <label htmlFor="website">Leave this field empty</label>
+                <input
+                  id="website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                />
+              </div>
+
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="name" required>
@@ -191,7 +235,8 @@ export function ContactPageContent() {
                   <select
                     id="budget"
                     className="flex h-11 w-full rounded-md border border-dark/15 bg-white px-4 text-body-16 text-dark transition-colors focus-visible:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-                    defaultValue=""
+                    value={budget}
+                    onChange={(e) => setBudget(e.target.value)}
                   >
                     <option value="" disabled>
                       Pick a range (optional)

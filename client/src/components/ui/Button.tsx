@@ -101,9 +101,33 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const isDisabled = disabled || loading;
 
+    const inner = (
+      <>
+        {loading ? <Loader2 className="animate-spin" aria-hidden="true" /> : leftIcon}
+        <span className="truncate">{children}</span>
+        {!loading && rightIcon}
+      </>
+    );
+
     if (asChild) {
-      // When using asChild, Slot needs a single element child. We render the
-      // children directly so callers can do `<Button asChild><a>…</a></Button>`.
+      // Slot needs a single element child, so the icons cannot be siblings of
+      // it — they have to be cloned *into* it. Without this, `leftIcon`/
+      // `rightIcon` were silently dropped on every `asChild` button (which is
+      // most CTAs on the site, since they wrap next/link).
+      const child = React.isValidElement(children)
+        ? React.cloneElement(
+            children as React.ReactElement<{ children?: React.ReactNode }>,
+            undefined,
+            <>
+              {loading ? <Loader2 className="animate-spin" aria-hidden="true" /> : leftIcon}
+              <span className="truncate">
+                {(children as React.ReactElement<{ children?: React.ReactNode }>).props.children}
+              </span>
+              {!loading && rightIcon}
+            </>,
+          )
+        : children;
+
       // The ref type widens to HTMLElement since Slot renders the child's element.
       return (
         <Slot
@@ -112,7 +136,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           aria-busy={loading || undefined}
           {...props}
         >
-          {children}
+          {child}
         </Slot>
       );
     }
@@ -126,13 +150,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type={type ?? "button"}
         {...props}
       >
-        {loading ? (
-          <Loader2 className="animate-spin" aria-hidden="true" />
-        ) : (
-          leftIcon
-        )}
-        <span className="truncate">{children}</span>
-        {!loading && rightIcon}
+        {inner}
       </button>
     );
   },
