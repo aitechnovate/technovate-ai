@@ -13,10 +13,10 @@ export const siteInfo = {
   /*
    * The live domain. This feeds `metadataBase` (so every canonical and OG URL
    * on the site resolves against it) and the same-origin check on the API
-   * routes — it was pointing at technovate.ai, which the site does not serve.
+   * routes — it was pointing at technovateai.com, which the site does not serve.
    */
   url: "https://www.technovateai.com",
-  email: "hello@technovate.ai",
+  email: "hello@technovateai.com",
   phone: "+92 324 9717097",
   /** wa.me requires digits only — no "+", spaces, or punctuation. */
   whatsapp: "923249717097",

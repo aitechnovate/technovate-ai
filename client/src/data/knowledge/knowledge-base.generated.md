@@ -15,11 +15,11 @@ Tagline: Innovate. Automate. Elevate.
 What we do: Enterprise AI consulting, automation, and custom development. We help ambitious teams ship AI that pays for itself.
 
 Contact:
-- Email: hello@technovate.ai
+- Email: hello@technovateai.com
 - Phone: +92 324 9717097
 - WhatsApp: +92 324 9717097
 - Office: Mustafa Town, Lahore, Pakistan
-- Website: https://technovate.ai
+- Website: https://www.technovateai.com
 
 ## Certifications, scale, and technology
 
@@ -73,7 +73,7 @@ Typical outcomes:
 - Client-reported ROI within 12mo: 4.6x
 
 Engagement: 4–8 weeks, 1 strategist, 1 senior engineer, starting at $18,000 fixed scope.
-Page: https://technovate.ai/solutions/ai-consulting
+Page: https://www.technovateai.com/solutions/ai-consulting
 
 ## Solution: AI Automation
 
@@ -114,7 +114,7 @@ Typical outcomes:
 - Straight-through processing: 62%
 
 Engagement: 8–12 weeks, 3–4 senior engineers, 1 designer, starting at $32,000 / month.
-Page: https://technovate.ai/solutions/ai-automation
+Page: https://www.technovateai.com/solutions/ai-automation
 
 ## Solution: Custom AI Development
 
@@ -155,7 +155,7 @@ Typical outcomes:
 - Eval coverage at handover: 1,200 cases
 
 Engagement: 12–16 weeks, 4–6 senior engineers, starting at $32,000 / month.
-Page: https://technovate.ai/solutions/custom-ai-development
+Page: https://www.technovateai.com/solutions/custom-ai-development
 
 ## Solution: AI Agents
 
@@ -196,7 +196,7 @@ Typical outcomes:
 - Mean steps per completed task: 7.4
 
 Engagement: 10–16 weeks, 3–5 senior engineers, starting at $32,000 / month.
-Page: https://technovate.ai/solutions/ai-agents
+Page: https://www.technovateai.com/solutions/ai-agents
 
 ## Solution: RAG Systems
 
@@ -237,7 +237,7 @@ Typical outcomes:
 - Benchmark questions evaluated: 1,200
 
 Engagement: 8–14 weeks, 3–4 senior engineers, starting at $32,000 / month.
-Page: https://technovate.ai/solutions/rag-systems
+Page: https://www.technovateai.com/solutions/rag-systems
 
 ## Solution: LLM Integrations
 
@@ -278,7 +278,7 @@ Typical outcomes:
 - P95 first-token latency: 380ms
 
 Engagement: 6–10 weeks, 2–3 senior engineers, starting at $18,000 fixed scope.
-Page: https://technovate.ai/solutions/llm-integrations
+Page: https://www.technovateai.com/solutions/llm-integrations
 
 ## Solution: Predictive Analytics
 
@@ -319,7 +319,7 @@ Typical outcomes:
 - Interval coverage accuracy: ±2 pts
 
 Engagement: 8–12 weeks, 2–4 senior engineers, starting at $32,000 / month.
-Page: https://technovate.ai/solutions/predictive-analytics
+Page: https://www.technovateai.com/solutions/predictive-analytics
 
 ## Solution: Intelligent Process Automation
 
@@ -360,7 +360,7 @@ Typical outcomes:
 - Decisions with full audit trail: 100%
 
 Engagement: 10–16 weeks, 3–5 senior engineers, starting at $32,000 / month.
-Page: https://technovate.ai/solutions/intelligent-process-automation
+Page: https://www.technovateai.com/solutions/intelligent-process-automation
 
 ## Solution: Data Analytics
 
@@ -401,7 +401,7 @@ Typical outcomes:
 - Metrics under governance: 340
 
 Engagement: 8–12 weeks, 2–4 senior engineers, starting at $32,000 / month.
-Page: https://technovate.ai/solutions/data-analytics
+Page: https://www.technovateai.com/solutions/data-analytics
 
 ## Product: AI Platform Suite
 
@@ -454,7 +454,7 @@ A: Evals run as a step in your existing pipeline via CLI or GitHub Action, retur
 Q: What data leaves our environment?
 A: In self-hosted deployments, none. In managed deployments you control exactly which fields are captured in traces, with PII redaction applied before storage.
 
-Page: https://technovate.ai/products/ai-platform-suite
+Page: https://www.technovateai.com/products/ai-platform-suite
 
 ## Product: Automation Tools
 
@@ -506,7 +506,7 @@ A: Yes. Every workflow has a code representation that can be diffed, reviewed, a
 Q: How are approvals routed?
 A: By rule — role, amount, confidence score, or any field in the run context. Escalation paths and SLA timers are configurable per step.
 
-Page: https://technovate.ai/products/automation-tools
+Page: https://www.technovateai.com/products/automation-tools
 
 ## Product: Knowledge Assistant
 
@@ -558,7 +558,7 @@ A: It says so rather than guessing, and the question is logged into the knowledg
 Q: Can we use our own model provider?
 A: Yes. Claude, OpenAI, Gemini, Bedrock, Azure OpenAI, and self-hosted open-weight models are all supported.
 
-Page: https://technovate.ai/products/knowledge-assistant
+Page: https://www.technovateai.com/products/knowledge-assistant
 
 ## Product: Analytics Dashboard
 
@@ -610,7 +610,7 @@ A: The core is stable and running in production with design partners. Embedding 
 Q: Can we see the SQL behind a chart?
 A: Always. Every chart, narrative, and drill-down exposes the exact query that produced it.
 
-Page: https://technovate.ai/products/analytics-dashboard
+Page: https://www.technovateai.com/products/analytics-dashboard
 
 ## Industry: Healthcare
 
@@ -1142,7 +1142,7 @@ First quarter:
 - Weeks 4–8: Take technical ownership of one client engagement end to end, with a principal engineer available but not embedded.
 - Weeks 9–13: Lead a discovery for a new engagement and set the architecture direction. Begin reviewing designs across other squads.
 
-Apply at https://technovate.ai/careers/staff-ml-engineer
+Apply at https://www.technovateai.com/careers/staff-ml-engineer
 
 ## Open role: Senior Platform Engineer
 
@@ -1177,7 +1177,7 @@ First quarter:
 - Weeks 4–8: Own a platform surface end to end. Join the on-call rotation with a buddy.
 - Weeks 9–13: Lead a platform initiative sourced from delivery-team pain, from proposal through rollout.
 
-Apply at https://technovate.ai/careers/senior-platform-engineer
+Apply at https://www.technovateai.com/careers/senior-platform-engineer
 
 ## Open role: Principal AI Architect
 
@@ -1212,7 +1212,7 @@ First quarter:
 - Weeks 5–9: Drive resolution on the highest-leverage gap you identified, and begin joining discovery conversations as the technical authority.
 - Weeks 10–13: Own the technical standard end to end, including design review cadence and the architecture decision record practice.
 
-Apply at https://technovate.ai/careers/principal-architect
+Apply at https://www.technovateai.com/careers/principal-architect
 
 ## Open role: Engagement Lead, Financial Services
 
@@ -1247,7 +1247,7 @@ First quarter:
 - Weeks 4–8: Take ownership of one existing engagement with the outgoing lead available for support.
 - Weeks 9–13: Run a discovery independently and own the resulting scope, pricing, and delivery plan.
 
-Apply at https://technovate.ai/careers/engagement-lead
+Apply at https://www.technovateai.com/careers/engagement-lead
 
 ## Open role: Senior Product Designer, AI Products
 
@@ -1282,7 +1282,7 @@ First quarter:
 - Weeks 4–8: Own design for one product area end to end, shipping at least one meaningful interaction improvement.
 - Weeks 9–13: Lead the design direction on a new product surface and formalize the patterns into the design system.
 
-Apply at https://technovate.ai/careers/product-designer
+Apply at https://www.technovateai.com/careers/product-designer
 
 ## Open role: ML Engineer Intern — Summer 2026
 
@@ -1316,7 +1316,7 @@ First quarter:
 - Weeks 3–9: Core project work on a live engagement with a named mentor and weekly check-ins.
 - Weeks 10–12: Ship your project, write it up, and present to the engineering team.
 
-Apply at https://technovate.ai/careers/ml-engineer-intern
+Apply at https://www.technovateai.com/careers/ml-engineer-intern
 
 ## Article: How we evaluate RAG systems in production
 
@@ -1327,7 +1327,7 @@ Author: Sana Qureshi, Staff ML Engineer
 Published: 2026-07-14
 Reading time: 9 minutes
 Tags: RAG, Evaluation, Retrieval
-Read at: https://technovate.ai/resources/blog/evaluating-rag-systems
+Read at: https://www.technovateai.com/resources/blog/evaluating-rag-systems
 
 ## Article: Reliability patterns for AI agents
 
@@ -1338,7 +1338,7 @@ Author: David Okafor, Head of Platform
 Published: 2026-06-30
 Reading time: 12 minutes
 Tags: Agents, Reliability, Platform
-Read at: https://technovate.ai/resources/blog/agent-reliability-patterns
+Read at: https://www.technovateai.com/resources/blog/agent-reliability-patterns
 
 ## Article: A cheatsheet for AI automation ROI
 
@@ -1349,7 +1349,7 @@ Author: Mariana Costa, Engagement Lead
 Published: 2026-06-12
 Reading time: 6 minutes
 Tags: ROI, Strategy, Automation
-Read at: https://technovate.ai/resources/blog/automation-roi-cheatsheet
+Read at: https://www.technovateai.com/resources/blog/automation-roi-cheatsheet
 
 ## Article: Tutorial: production-grade tool use with Claude
 
@@ -1360,4 +1360,4 @@ Author: Anand Subramanian, Senior Engineer
 Published: 2026-05-28
 Reading time: 18 minutes
 Tags: Tutorials, Tool use, Claude
-Read at: https://technovate.ai/resources/blog/tutorial-claude-tool-use
+Read at: https://www.technovateai.com/resources/blog/tutorial-claude-tool-use

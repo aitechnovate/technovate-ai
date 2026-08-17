@@ -201,12 +201,12 @@ export default function RoleDetailPage({ params }: PageProps) {
                 recruiting inbox.
               </p>
               <a
-                href={`mailto:careers@technovate.ai?subject=${encodeURIComponent(
+                href={`mailto:careers@technovateai.com?subject=${encodeURIComponent(
                   `Question about ${role.title}`
                 )}`}
                 className="mt-4 inline-flex text-small-14 font-semibold text-primary hover:underline"
               >
-                careers@technovate.ai
+                careers@technovateai.com
               </a>
             </Card>
           </div>

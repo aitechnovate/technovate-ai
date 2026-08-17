@@ -49,11 +49,16 @@ const TOP_K = Number(process.env.RAG_TOP_K ?? 6);
  * Below this floor we return nothing, and the route tells the model it has no
  * context — which makes it decline rather than confabulate from noise.
  *
- * 0.25 suits text-embedding-3-small, whose scores for genuinely related text
- * on this corpus sit around 0.35-0.6. Retune if you change embedding model:
- * run `npm run rag:eval` and look at the score column.
+ * 0.30 is measured, not guessed. On this corpus with text-embedding-3-small,
+ * `npm run rag:eval` puts the weakest on-topic question at 0.378 and the
+ * strongest off-topic one — a prompt-injection attempt — at 0.273, so 0.30
+ * sits in the gap with margin on both sides. At the previous 0.25 the
+ * injection attempt cleared the floor and pulled in a chunk.
+ *
+ * Re-run the eval and re-derive this if you change embedding model or add a
+ * lot of content; the gap is a property of the corpus, not a constant.
  */
-const SCORE_FLOOR = Number(process.env.RAG_SCORE_FLOOR ?? 0.25);
+const SCORE_FLOOR = Number(process.env.RAG_SCORE_FLOOR ?? 0.3);
 
 function cosineSimilarity(a: number[], b: number[]): number {
   let dot = 0;

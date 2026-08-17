@@ -314,7 +314,7 @@ export function CareersPageContent() {
           <div className="rounded-xl border border-dashed border-dark/15 bg-light-200 p-12 text-center">
             <p className="text-body-16 text-dark-500">
               No open roles in this team right now. Check back soon — or send
-              a speculative application to careers@technovate.ai.
+              a speculative application to careers@technovateai.com.
             </p>
           </div>
         )}
@@ -326,8 +326,8 @@ export function CareersPageContent() {
           eyebrow="Don&apos;t see your role?"
           title="Send us a speculative application."
           description="If you've shipped production AI and want to do it with a team that cares about outcomes, tell us what you'd want to work on. We hire opportunistically when great people show up."
-          primaryLabel="Email careers@technovate.ai"
-          primaryHref="mailto:careers@technovate.ai"
+          primaryLabel="Email careers@technovateai.com"
+          primaryHref="mailto:careers@technovateai.com"
           secondaryLabel="Meet the team"
           secondaryHref="/about"
         />

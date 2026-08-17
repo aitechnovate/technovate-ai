@@ -10,6 +10,13 @@
  *   npm run rag:eval                 # run the built-in question set
  *   npm run rag:eval -- "your question here"
  *
+ * Note the `--conditions=react-server` flag in the npm script. This imports
+ * `src/lib/rag.ts`, which is marked `server-only`; that package throws on
+ * import unless the `react-server` export condition is active, which Next sets
+ * during a server build but plain Node does not. The flag makes it resolve to
+ * its no-op build so the guard stays in place for the app while remaining
+ * loadable from a script. Running this file with bare `tsx` will throw.
+ *
  * Read the output two ways:
  *   - Top score on an ON-TOPIC question should be comfortably above the floor.
  *   - Top score on an OFF-TOPIC question should be below it. If off-topic

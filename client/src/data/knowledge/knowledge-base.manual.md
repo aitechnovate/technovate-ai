@@ -18,10 +18,10 @@
 
 The chatbot answers questions about services, pricing, industries, case studies, and open roles. For anything that needs a person:
 
-- **New business and project enquiries** — book a free 30-minute consultation at https://technovate.ai/contact, or email hello@technovate.ai
+- **New business and project enquiries** — book a free 30-minute consultation at https://technovateai.com/contact, or email hello@technovateai.com
 - **Phone and WhatsApp** — +92 324 9717097
 - **Office** — Mustafa Town, Lahore, Pakistan
-- **Job applications** — apply through the specific role page under https://technovate.ai/careers; applications are not accepted over chat
+- **Job applications** — apply through the specific role page under https://technovateai.com/careers; applications are not accepted over chat
 - **Existing clients** — contact your engagement lead directly rather than through this form
 
 The team responds to enquiries within one business day.
@@ -36,7 +36,7 @@ It cannot:
 - Provide legal, financial, medical, or regulatory advice
 - Schedule meetings directly (use the contact page)
 
-For a firm quote or a scoping conversation, book a consultation at https://technovate.ai/contact.
+For a firm quote or a scoping conversation, book a consultation at https://technovateai.com/contact.
 
 <!--
   ============================================================================
