@@ -35,6 +35,13 @@ const ON_TOPIC = [
   "Do you have SOC 2?",
   "What is your RAG offering?",
   "Where is your office and how do I contact you?",
+  // Catalogue questions. These are phrased the vague way people actually ask
+  // them, and they must land on the "(complete list)" directory chunks — a
+  // per-entity chunk answering here means the reply will be a partial list.
+  "tell me your services",
+  "Which industries do you work in?",
+  "What products do you have?",
+  "is there any open role right now?",
 ];
 
 const OFF_TOPIC = [

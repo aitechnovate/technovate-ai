@@ -34,6 +34,60 @@ Company scale:
 
 Technologies we work with: OpenAI, Claude, Gemini, LangChain, LangGraph, Python, Next.js, Node.js, Docker, AWS, Azure, Supabase, MongoDB
 
+## Services and solutions we offer (complete list)
+
+The complete list of services Technovate AI offers. These are our solutions — the words "services", "offerings", and "what we do" all refer to this list. There are 9 in total.
+
+- AI Consulting — Roadmaps, feasibility studies, and ROI modeling grounded in your data. Page: /solutions/ai-consulting
+- AI Automation — Eliminate repetitive work with intelligent workflows that integrate cleanly. Page: /solutions/ai-automation
+- Custom AI Development — Bespoke models and applications engineered for your domain. Page: /solutions/custom-ai-development
+- AI Agents — Autonomous agents that act, not just answer — with deterministic guardrails. Page: /solutions/ai-agents
+- RAG Systems — Grounded LLM apps over your proprietary knowledge with citation-grade answers. Page: /solutions/rag-systems
+- LLM Integrations — Wire Claude, GPT, Gemini, and open models into your existing stack. Page: /solutions/llm-integrations
+- Predictive Analytics — Forecast demand, churn, and risk with calibrated confidence intervals. Page: /solutions/predictive-analytics
+- Intelligent Process Automation — Combine RPA with AI for cognitive workflows that adapt to exceptions. Page: /solutions/intelligent-process-automation
+- Data Analytics — From raw data to executive-ready insight, with narrative explanations. Page: /solutions/data-analytics
+
+All services overview page: /solutions
+
+## Products we offer (complete list)
+
+The complete list of Technovate AI products. There are 4 in total.
+
+- AI Platform Suite (GA) — Govern, deploy, and observe AI from one console. Page: /products/ai-platform-suite
+- Automation Tools (GA) — Visual workflow builder for ops and revenue teams. Page: /products/automation-tools
+- Knowledge Assistant (GA) — Secure, multi-source AI for your internal teams. Page: /products/knowledge-assistant
+- Analytics Dashboard (Beta) — Live KPIs, anomaly alerts, and drill-down narratives. Page: /products/analytics-dashboard
+
+All products overview page: /products
+
+## Industries we serve (complete list)
+
+The complete list of industries and sectors Technovate AI works in. There are 7 in total.
+
+- Healthcare — Clinical documentation, triage, prior auth, and HIPAA-compliant copilots. We work inside your EHR — not around it. Page: /industries/healthcare
+- Finance — Risk, fraud, AML, and advisor copilots grounded in regulatory frameworks and the documents that drive them. Page: /industries/finance
+- Manufacturing — Predictive maintenance, quality vision, and OEE-lifting systems that live on the line, not in the dashboard. Page: /industries/manufacturing
+- Retail — Demand sensing, personalization, and CX automation that scales with the season — and learns from every interaction. Page: /industries/retail
+- Logistics — Route optimization, ETA prediction, and reinforcement-learning dispatch for fleets of every shape. Page: /industries/logistics
+- Education — Adaptive tutoring, grading copilots, and district-curriculum-grounded agents that respect student privacy. Page: /industries/education
+- Real Estate — Valuation models, lead scoring, and document AI for transactions at scale — across residential and commercial. Page: /industries/real-estate
+
+All industries overview page: /industries
+
+## Open roles and jobs (complete list)
+
+Every role Technovate AI is currently hiring for — the complete list of open jobs, vacancies, and career opportunities. There are 6 open.
+
+- Staff ML Engineer, RAG & Agents — Engineering, Remote (US/EU), Full-time. Apply: /careers/staff-ml-engineer
+- Senior Platform Engineer — Engineering, San Francisco / Remote, Full-time. Apply: /careers/senior-platform-engineer
+- Principal AI Architect — Engineering, Remote (Global), Full-time. Apply: /careers/principal-architect
+- Engagement Lead, Financial Services — Strategy, New York / Remote, Full-time. Apply: /careers/engagement-lead
+- Senior Product Designer, AI Products — Design, Remote (US), Full-time. Apply: /careers/product-designer
+- ML Engineer Intern — Summer 2026 — Engineering, San Francisco, Internship. Apply: /careers/ml-engineer-intern
+
+All open roles: /careers
+
 ## Solution: AI Consulting
 
 We help leadership teams decide where to invest, what to build, and what to defer. Strategy work that's grounded in your data and ready to ship.

@@ -7,6 +7,7 @@ import { Bot, Send, X, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { Markdown } from "@/components/chat/Markdown";
 
 /**
  * Public support chatbot, launched from a floating button on every marketing
@@ -236,13 +237,18 @@ export function ChatWidget() {
                 <div
                   key={m.id}
                   className={cn(
-                    "max-w-[88%] whitespace-pre-wrap rounded-lg px-3 py-2 leading-relaxed",
+                    "rounded-lg px-3 py-2 leading-relaxed",
                     m.role === "user"
-                      ? "ml-auto bg-primary text-white"
-                      : "mr-auto bg-light-200 text-dark",
+                      ? "ml-auto max-w-[88%] whitespace-pre-wrap bg-primary text-white"
+                      : // Answers can carry lists and links, so they get the full
+                        // column width and markdown rendering rather than raw text.
+                        "mr-auto max-w-[94%] bg-light-200 text-dark-700",
                   )}
                 >
-                  {m.content ||
+                  {m.role === "assistant" && m.content ? (
+                    <Markdown content={m.content} />
+                  ) : (
+                    m.content ||
                     (pending && m.role === "assistant" ? (
                       <span className="inline-flex items-center gap-1 py-1">
                         <span className="size-1.5 animate-bounce rounded-full bg-dark-400 [animation-delay:-0.3s]" />
@@ -250,7 +256,8 @@ export function ChatWidget() {
                         <span className="size-1.5 animate-bounce rounded-full bg-dark-400" />
                         <span className="sr-only">Assistant is typing</span>
                       </span>
-                    ) : null)}
+                    ) : null)
+                  )}
                 </div>
               ))}
 
