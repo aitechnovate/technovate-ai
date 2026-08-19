@@ -74,6 +74,64 @@ Technologies we work with: ${techStack.join(", ")}
 `,
 );
 
+/* ---- Directories ----------------------------------------------------- */
+
+/**
+ * Index chunks, one per catalogue.
+ *
+ * The per-entity sections below are deep but narrow: each names one solution,
+ * so a list question ("what services do you offer?", "which industries do you
+ * work in?") has to assemble its answer out of TOP_K separate chunks and
+ * silently drops whatever falls off the end — which is how "which industries"
+ * came back with six of eight. These short sections put the complete list in a
+ * single chunk, and carry the words people actually search with ("services",
+ * "offer") next to the internal vocabulary ("solutions").
+ */
+
+section(
+  "Services and solutions we offer (complete list)",
+  `
+The complete list of services Technovate AI offers. These are our solutions — the words "services", "offerings", and "what we do" all refer to this list. There are ${solutions.length} in total.
+
+${solutions.map((s) => `- ${s.title} — ${s.description} Page: ${s.href}`).join("\n")}
+
+All services overview page: /solutions
+`,
+);
+
+section(
+  "Products we offer (complete list)",
+  `
+The complete list of Technovate AI products. There are ${products.length} in total.
+
+${products.map((p) => `- ${p.title} (${p.status}) — ${p.tagline} Page: ${p.href}`).join("\n")}
+
+All products overview page: /products
+`,
+);
+
+section(
+  "Industries we serve (complete list)",
+  `
+The complete list of industries and sectors Technovate AI works in. There are ${industries.length} in total.
+
+${industries.map((i) => `- ${i.name} — ${i.description} Page: /industries/${i.slug}`).join("\n")}
+
+All industries overview page: /industries
+`,
+);
+
+section(
+  "Open roles and jobs (complete list)",
+  `
+Every role Technovate AI is currently hiring for — the complete list of open jobs, vacancies, and career opportunities. There are ${roles.length} open.
+
+${roles.map((r) => `- ${r.title} — ${r.team}, ${r.location}, ${r.type}. Apply: /careers/${r.slug}`).join("\n")}
+
+All open roles: /careers
+`,
+);
+
 /* ---- Solutions ------------------------------------------------------ */
 
 for (const s of solutions) {
